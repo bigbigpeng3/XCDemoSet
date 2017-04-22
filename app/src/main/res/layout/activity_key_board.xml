@@ -8,24 +8,26 @@
     android:visibility="visible">
 
 
-    <include layout="@layout/custom_send_message_view"/>
+    <com.pengzhangdemo.com.myapplication.widget.LiveSendMessageView
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 
     <!--<View-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="100dp"-->
-        <!--android:layout_above="@+id/container_send"-->
-        <!--android:background="@android:color/darker_gray"/>-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="100dp"-->
+    <!--android:layout_above="@+id/container_send"-->
+    <!--android:background="@android:color/darker_gray"/>-->
 
 </RelativeLayout>
 
-<!--<cn.dreamtobe.kpswitch.widget.KPSwitchRootLinearLayout-->
-<!--xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--android:id="@+id/rootView"-->
-<!--android:layout_width="match_parent"-->
-<!--android:layout_height="match_parent"-->
-<!--android:orientation="vertical">-->
+    <!--<cn.dreamtobe.kpswitch.widget.KPSwitchRootLinearLayout-->
+    <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--android:id="@+id/rootView"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:orientation="vertical">-->
 
 
-
-<!--</cn.dreamtobe.kpswitch.widget.KPSwitchRootLinearLayout>-->
+    <!--</cn.dreamtobe.kpswitch.widget.KPSwitchRootLinearLayout>-->
