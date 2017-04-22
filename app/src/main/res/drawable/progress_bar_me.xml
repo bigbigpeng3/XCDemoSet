@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 层叠 -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item android:id="@android:id/background">
+        <shape>
+            <corners android:topRightRadius="10dp"
+                     android:bottomRightRadius="10dp"/>
+
+            <gradient
+                android:angle="270"
+                android:centerColor="#eeeeee"
+                android:endColor="#eeeeee"
+                android:startColor="#eeeeee" />
+
+            <solid android:color="#eeeeee"/>
+
+        </shape>
+    </item>
+
+    <item android:id="@android:id/secondaryProgress">
+        <scale android:scaleWidth="100%">
+            <shape>
+                <corners android:topRightRadius="10dp"
+                         android:bottomRightRadius="10dp"/>
+                <solid android:color="#ffd23d"/>
+            </shape>
+        </scale>
+    </item>
+
+    <item android:id="@android:id/progress">
+        <!--<clip>-->
+            <!--<shape>-->
+
+                <!--<scale android:scaleWidth="100%"-->
+                       <!--android:drawable="@drawable/shape_progress_bg"   />-->
+
+                <!--&lt;!&ndash;<corners android:topRightRadius="10dp"&ndash;&gt;-->
+                         <!--&lt;!&ndash;android:bottomRightRadius="10dp"/>&ndash;&gt;-->
+
+                <!--<gradient-->
+                    <!--android:centerColor="#ffd23d"-->
+                    <!--android:endColor="#ffd23d"-->
+                    <!--android:startColor="#ffd23d" />-->
+
+            <!--</shape>-->
+        <!--</clip>-->
+
+        <scale android:scaleWidth="100%"
+               android:drawable="@drawable/shape_progress_bg"   />
+    </item>
+
+</layer-list>
