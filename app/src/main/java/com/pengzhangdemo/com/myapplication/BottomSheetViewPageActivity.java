@@ -6,10 +6,11 @@ import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.pengzhangdemo.com.myapplication.adapter.LiveMessagePageAdapter;
 
@@ -57,23 +58,22 @@ public class BottomSheetViewPageActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tab_message);
         ViewPager viewPager = (ViewPager) view.findViewById(R.id.vp_message);
-
         viewPager.setOffscreenPageLimit(2);
-
         viewPager.setAdapter(new LiveMessagePageAdapter(getSupportFragmentManager(),messageListFrags, messageTitles));
-
         tabLayout.setupWithViewPager(viewPager);
-
         viewPager.setCurrentItem(0);
 
-        ViewCompat.setNestedScrollingEnabled(viewPager,false);
 
 //        TabLayoutIndicatorUtils.setIndicator(this.mActivity, tabLayout, TabLayoutIndicatorUtils.LIVE_MESSAGE_TAB_MARGIN_DIP, TabLayoutIndicatorUtils.LIVE_MESSAGE_TAB_MARGIN_DIP);
 
         mBottomSheetDialog = new BottomSheetDialog(this);
         mBottomSheetDialog.setContentView(view);
         mBottomSheetDialog.getDelegate().findViewById(android.support.design.R.id.design_bottom_sheet).setBackgroundColor(this.getApplicationContext().getResources().getColor(R.color.transparent));
-        mBottomSheetDialog.getWindow().setDimAmount(0);
+        Window window = mBottomSheetDialog.getWindow();
+        WindowManager.LayoutParams params = window.getAttributes();
+        params.width = WindowManager.LayoutParams.MATCH_PARENT;
+        window.setAttributes(params);
+        window.setDimAmount(0);
         mBottomSheetDialog.show();
         mBottomSheetDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
             @Override

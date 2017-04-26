@@ -127,6 +127,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
+        <Button
+            android:id="@+id/btn_show_fragment"
+            android:text="show_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
         <!--android:indeterminate="false"-->
         <!--android:indeterminateOnly="false"-->
 
@@ -140,7 +146,6 @@
         <!--app:rcSecondaryProgressColor="#ffd23d"-->
         <!--app:rcBackgroundColor="#eeeeee"-->
         <!--app:rcBackgroundPadding="0dp"/>-->
-
 
     </LinearLayout>
 

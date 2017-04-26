@@ -29,6 +29,8 @@
             android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".BottomSheetViewPageActivity">
         </activity>
+        <activity android:name=".FragmentActivity">
+        </activity>
     </application>
 
 </manifest>

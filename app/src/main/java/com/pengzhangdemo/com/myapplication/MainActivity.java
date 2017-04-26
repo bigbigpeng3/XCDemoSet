@@ -46,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnBottomSheet = (Button) findViewById(R.id.btn_bottom_sheet);
         btnBottomSheet.setOnClickListener(this);
 
+        findViewById(R.id.btn_show_fragment).setOnClickListener(this);
+
 //        RoundCornerProgressBar progress1 = (RoundCornerProgressBar) findViewById(R.id.progress_1);
 //        progress1.setProgressColor(Color.parseColor("#ed3b27"));
 //        progress1.setProgressBackgroundColor(Color.parseColor("#808080"));
@@ -80,6 +82,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(this, KeyBoardActivity.class));
         }else if (v == btnBottomSheet){
             startActivity(new Intent(this, BottomSheetViewPageActivity.class));
+        }else if (v.getId() == R.id.btn_show_fragment){
+            startActivity(new Intent(this,FragmentActivity.class));
         }
 
     }
