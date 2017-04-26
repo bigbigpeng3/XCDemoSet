@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnVideo;
     private Button btnRecord;
     private Button btnkeyboard;
+    private Button btnBottomSheet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnkeyboard = (Button) findViewById(R.id.btn_keyboard);
         btnkeyboard.setOnClickListener(this);
+
+        btnBottomSheet = (Button) findViewById(R.id.btn_bottom_sheet);
+        btnBottomSheet.setOnClickListener(this);
 
 //        RoundCornerProgressBar progress1 = (RoundCornerProgressBar) findViewById(R.id.progress_1);
 //        progress1.setProgressColor(Color.parseColor("#ed3b27"));
@@ -74,6 +78,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(this, RecordActvity.class));
         }else if (v == btnkeyboard){
             startActivity(new Intent(this, KeyBoardActivity.class));
+        }else if (v == btnBottomSheet){
+            startActivity(new Intent(this, BottomSheetViewPageActivity.class));
         }
 
     }

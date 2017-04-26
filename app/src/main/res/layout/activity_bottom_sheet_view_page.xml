@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.pengzhangdemo.com.myapplication.BottomSheetViewPageActivity">
+
+
+
+    <include
+        android:id="@+id/sheet_message_list"
+        layout="@layout/bottom_sheet_live_message_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:layout_behavior="@string/bottom_sheet_behavior"
+        />
+
+
+</android.support.design.widget.CoordinatorLayout>

@@ -7,5 +7,92 @@
     <color name="common_btn_blue_normal">#FFDD3B</color>
     <color name="common_btn_blue_pressed">#FFDD3B</color>
 
+    <!-- Global -->
+
     <color name="white">@android:color/white</color>
+    <color name="black">@android:color/black</color>
+    <color name="transparent">@android:color/transparent</color>
+
+    <color name="global_title_text_color">@android:color/white</color>
+
+    <color name="global_item_text_color">@android:color/black</color>
+
+    <color name="global_item2_text_color">@android:color/darker_gray</color>
+
+    <color name="global_white_text_color">@android:color/white</color>
+
+    <color name="global_item_layout_color">@android:color/black</color>
+
+    <color name="global_layout_bg_color">#f2f2f2</color>
+
+    <color name="global_layout_white_color">@android:color/white</color>
+
+    <color name="global_layout_black_color">@android:color/black</color>
+
+
+    <!-- HomeActivity bg -->
+    <color name="home_bg">#f2f2f2</color>
+    <!--<color name="home_bg">@android:color/white</color>-->
+    <color name="home_item_divider">@android:color/transparent</color>
+
+
+    <!-- hot tag color -->
+    <color name="tag_color_default">#ffdd3b</color>
+    <color name="tag_color_1">#ffdd3b</color>
+    <color name="tag_color_2">#ff9439</color>
+    <color name="tag_color_3">#ff6d5f</color>
+    <color name="tag_color_4">#f264c0</color>
+    <color name="tag_color_5">#9669f4</color>
+    <color name="tag_color_6">#0099fb</color>
+    <color name="tag_color_7">#00d3c4</color>
+    <color name="tag_color_8">#3bdd6d</color>
+
+    <color name="newest_tag_color">#e9e9e9</color>
+
+    <color name="tag_text_color_black">@android:color/black</color>
+    <color name="tag_text_color_white">@android:color/white</color>
+
+
+    <!--me-->
+
+    <color name="me_bar_grey_bg">#eeeeee</color>
+    <color name="me_bar_grey0_bg">#FAFAFA</color>
+    <color name="me_bar_text">#3a3a3a</color>
+    <color name="me_divider">#dfdfdf</color>
+    <color name="me_item_text">#3a3a3a</color>
+    <color name="me_item_text_hint">#c2c2c2</color>
+    <color name="me_id_bg">#f2f2f2</color>
+    <color name="me_avatar_line">#f2f2f2</color>
+
+
+    <!-- user profile & nickname & user description-->
+    <color name="profile_title_color">#3a3a3a</color>
+    <color name="profile_hint_color">#C2C2C2</color>
+
+
+    <!-- live -->
+    <color name="live_title_black_text">#3a3a3a</color>
+    <color name="live_title_yellow_text">#ffdd3b</color>
+    <color name="live_title_white_text">#ffffff</color>
+
+    <color name="live_title_yellow_bg">#ffdd3b</color>
+    <color name="live_title_grey_bg">#19000000</color>
+    <!--  #  70% #9A 60%   #66 40%      #4C 30%     #19 10%  -->
+    <color name="live_earning_black_bg">#4C000000</color>
+    <color name="live_unread_black_bg">#80000000</color>
+    <color name="live_bottom_message_top_black_bg">#A4000000</color>
+    <color name="live_bottom_black_bg">#9A000000</color>
+
+
+
+
+
+    <!-- live chat room -->
+    <color name="live_chat_room_user_name_color">#ffd04b</color>
+    <color name="live_chat_room_user_content_color">#ffaa00</color>
+
+    <color name="live_chat_room_system_color">#33bbff</color>
+    <color name="live_chat_room_system_gift_color">#ff4c51</color>
+    <color name="live_chat_room_system_activity_color">#47d555</color>
+
 </resources>

@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">XCDemoSet</string>
+
+
+    <string name="live_message_friend">朋友</string>
+    <string name="live_message_stranger">路人</string>
+    <string name="live_message_system">系统</string>
+
 </resources>

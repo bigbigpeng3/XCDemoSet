@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fl_share_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom">
+
+    <!--tools:ignore="UnusedAttribute"-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="256dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="0dp"
+        android:orientation="vertical"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp">
+
+
+        <!-- 聊天信息头部 -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/live_bottom_message_top_black_bg">
+
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tab_message"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                app:tabIndicatorColor="@color/colorAccent"
+                app:tabIndicatorHeight="2dp"
+                app:tabMode="fixed"
+                app:tabSelectedTextColor="@color/colorAccent"
+                app:tabTextColor="@color/white"/>
+
+            <ImageView
+                android:id="@+id/iv_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="8dp"
+                android:src="@mipmap/ic_launcher"/>
+
+        </RelativeLayout>
+
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/live_bottom_black_bg"/>
+
+
+    </LinearLayout>
+
+
+</FrameLayout>

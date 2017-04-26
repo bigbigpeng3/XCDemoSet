@@ -121,6 +121,11 @@
             android:layout_height="wrap_content"/>
 
 
+        <Button
+            android:id="@+id/btn_bottom_sheet"
+            android:text="BottomSheet + Tablayout + viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
         <!--android:indeterminate="false"-->
         <!--android:indeterminateOnly="false"-->

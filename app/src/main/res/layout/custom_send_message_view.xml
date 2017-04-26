@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/container_send"
     android:layout_width="match_parent"
-    android:layout_height="48dp"
+    android:layout_height="44dp"
     android:layout_alignParentBottom="true"
     android:background="#f2f2f2"
     android:gravity="center_vertical"
@@ -40,7 +40,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="28dp"
         android:layout_weight="1"
         android:background="@drawable/shape_message_edit_bg"
         android:orientation="horizontal">
@@ -50,9 +50,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="5dp"
+            android:layout_margin="5dp"
             android:background="@drawable/shape_message_room_button_bg1"
-            android:padding="4dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
             android:text="房间"
             android:textColor="@android:color/white"
             android:textSize="10sp"
@@ -66,12 +69,12 @@
             android:layout_marginRight="3dp"
             android:layout_weight="1"
             android:background="@android:color/transparent"
-            android:hint="说点什么吧..."
+            android:hint="嗡嗡嗡，说点什么吧..."
             android:maxLines="1"
             android:minHeight="36dp"
             android:paddingLeft="3dp"
             android:paddingRight="1dp"
-            android:textSize="18sp"
+            android:textSize="14sp"
             />
 
         <ImageView
@@ -90,13 +93,13 @@
     <Button
         android:id="@+id/btn_send"
         style="?android:attr/borderlessButtonStyle"
-        android:layout_width="60dp"
-        android:layout_height="36dp"
+        android:layout_width="50dp"
+        android:layout_height="28dp"
         android:layout_marginLeft="4dp"
         android:layout_marginRight="6dp"
         android:background="@drawable/live_blue_selector"
         android:text="发送"
-        android:textColor="#fff"
+        android:textColor="#3a3a3a"
         android:textSize="16sp"
         />
 

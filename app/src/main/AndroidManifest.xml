@@ -24,9 +24,11 @@
 
         <service android:name=".videorecord.ScreenRecordService"/>
 
-        <activity android:name=".keyboard.KeyBoardActivity"
-                  android:windowSoftInputMode="adjustResize"
-            />
+        <activity
+            android:name=".keyboard.KeyBoardActivity"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".BottomSheetViewPageActivity">
+        </activity>
     </application>
 
 </manifest>
