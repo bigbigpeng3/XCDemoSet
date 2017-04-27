@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager;
 
 import com.pengzhangdemo.com.myapplication.R;
 import com.pengzhangdemo.com.myapplication.adapter.LiveMessagePageAdapter;
@@ -95,12 +96,20 @@ public class ViewPageDialogFragment extends NoBarBottomSheetDialogFragment {
 
 
     /**
-     * 允许设置 取消 监听器
+     * 允许设置 dialog消失 监听器
      *
      * @param listener
      */
-    public void setOnCancleListener(DialogInterface.OnCancelListener listener) {
-        dialog.setOnCancelListener(listener);
+    public void setOnDismissListener(DialogInterface.OnDismissListener listener) {
+        dialog.setOnDismissListener(listener);
+    }
+
+
+    /**
+     * 会造成空指针异常。
+     */
+    public void setTransparentBackground(){
+        dialog.getDelegate().findViewById(android.support.design.R.id.design_bottom_sheet).setBackgroundColor(view.getContext().getApplicationContext().getResources().getColor(R.color.transparent));
     }
 
 
