@@ -63,6 +63,7 @@ public class BottomSheetViewPageActivity extends AppCompatActivity implements Vi
         Log.e(TAG, "mSettingBehavior.getState() = " + mSettingBehavior.getState());
 //        mSettingBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
 
+
         if (messageListFrags == null) {
             messageListFrags = new ArrayList<>();
             messageListFrags.add(new MessageFirendsListFragment());
