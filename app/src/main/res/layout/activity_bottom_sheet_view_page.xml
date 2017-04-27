@@ -8,15 +8,23 @@
     tools:context="com.pengzhangdemo.com.myapplication.BottomSheetViewPageActivity">
 
 
+    <Button
+        android:id="@+id/btn_toast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="弹出/隐藏"/>
+
+
 
     <include
         android:id="@+id/sheet_message_list"
         layout="@layout/bottom_sheet_live_message_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
+        app:behavior_peekHeight="0dp"
         app:layout_behavior="@string/bottom_sheet_behavior"
         />
-
+<!--app:behavior_peekHeight="?attr/actionBarSize"-->
 
 </android.support.design.widget.CoordinatorLayout>
