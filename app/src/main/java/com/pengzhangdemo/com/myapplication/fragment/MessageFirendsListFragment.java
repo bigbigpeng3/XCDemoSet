@@ -1,4 +1,4 @@
-package com.pengzhangdemo.com.myapplication;
+package com.pengzhangdemo.com.myapplication.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,7 +14,7 @@ public class MessageFirendsListFragment extends Fragment implements View.OnClick
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         if (view == null) {
-            view = inflater.inflate(R.layout.fragment_live_message_friends, container, false);
+            view = inflater.inflate(com.pengzhangdemo.com.myapplication.R.layout.fragment_live_message_friends, container, false);
         }
 
 

@@ -2,7 +2,7 @@ package com.pengzhangdemo.com.myapplication;
 
 import android.os.Bundle;
 import android.support.design.widget.BottomSheetBehavior;
-import android.support.design.widget.BottomSheetDialogFragment;
+import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -13,17 +13,18 @@ import android.widget.Button;
 
 import com.pengzhangdemo.com.myapplication.adapter.LiveMessagePageAdapter;
 import com.pengzhangdemo.com.myapplication.fragment.MessageFirendsListFragment;
+import com.pengzhangdemo.com.myapplication.fragment.ViewPageDialogFragment;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BottomSheetViewPageActivity extends AppCompatActivity implements View.OnClickListener {
+public class ViewPageInBottomSheetDialogActivity extends AppCompatActivity implements View.OnClickListener {
 
 
     public static final String TAG = "BottomSheetViewPage";
 
     private BottomSheetBehavior mSettingBehavior;
-    private BottomSheetDialogFragment mBottomSheetDialogFragment;
+    private BottomSheetDialog mBottomSheetDialog;
 
     Button button;
     View includeView;
@@ -33,7 +34,7 @@ public class BottomSheetViewPageActivity extends AppCompatActivity implements Vi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bottom_sheet_view_page);
+        setContentView(R.layout.activity__view_page_in_bottom_sheet);
 
         includeView = findViewById(R.id.sheet_message_list);
 
@@ -41,7 +42,7 @@ public class BottomSheetViewPageActivity extends AppCompatActivity implements Vi
         button.setOnClickListener(this);
 
 
-        showMessageListBottom();
+//        showMessageListBottom();
 
     }
 
@@ -88,9 +89,6 @@ public class BottomSheetViewPageActivity extends AppCompatActivity implements Vi
 
         viewPager.setCurrentItem(0);
 
-
-
-
     }
 
     @Override
@@ -98,15 +96,25 @@ public class BottomSheetViewPageActivity extends AppCompatActivity implements Vi
 
         if (v == button) {
 
-            Log.e(TAG, "button mSettingBehavior.getState() = " + mSettingBehavior.getState());
+//            Log.e(TAG, "button mSettingBehavior.getState() = " + mSettingBehavior.getState());
 
-            if (mSettingBehavior.getState() == BottomSheetBehavior.STATE_COLLAPSED) {
-                mSettingBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
-            }else {
-//                mSettingBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
-                mSettingBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-            }
+//            if (mSettingBehavior.getState() == BottomSheetBehavior.STATE_COLLAPSED) {
+//                mSettingBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+//            }else {
+////                mSettingBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+//                mSettingBehavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+//            }
+
+            showBottomSheetFragment();
+
         }
+    }
+
+    private void showBottomSheetFragment() {
+        final ViewPageDialogFragment dialogFragment = new ViewPageDialogFragment();
+
+
+        dialogFragment.show(getSupportFragmentManager(), dialogFragment.getTag());
     }
 
 

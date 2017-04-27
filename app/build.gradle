@@ -33,5 +33,6 @@ dependencies {
     compile 'com.android.support:design:25.3.1'
     compile 'com.akexorcist:RoundCornerProgressBar:2.0.3'
     compile "biz.laenger.android:vpbs:0.0.4"
+
     testCompile 'junit:junit:4.12'
 }
