@@ -127,6 +127,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
+        <Button
+            android:id="@+id/btn_vp_in_bottom_sheet"
+            android:text="viewPager in BottomSheetDialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
         <!--android:indeterminate="false"-->
         <!--android:indeterminateOnly="false"-->
 

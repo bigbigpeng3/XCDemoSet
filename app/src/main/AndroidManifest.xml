@@ -27,8 +27,8 @@
         <activity
             android:name=".keyboard.KeyBoardActivity"
             android:windowSoftInputMode="adjustResize"/>
-        <activity android:name=".BottomSheetViewPageActivity">
-        </activity>
+        <activity android:name=".BottomSheetViewPageActivity"/>
+        <activity android:name=".ViewPageInBottomSheetDialogActivity"/>
     </application>
 
 </manifest>

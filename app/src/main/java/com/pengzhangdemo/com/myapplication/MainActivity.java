@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnRecord;
     private Button btnkeyboard;
     private Button btnBottomSheet;
+    private Button btnVPinBottomSheet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnBottomSheet = (Button) findViewById(R.id.btn_bottom_sheet);
         btnBottomSheet.setOnClickListener(this);
+
+        btnVPinBottomSheet = (Button) findViewById(R.id.btn_vp_in_bottom_sheet);
+        btnVPinBottomSheet.setOnClickListener(this);
 
 //        RoundCornerProgressBar progress1 = (RoundCornerProgressBar) findViewById(R.id.progress_1);
 //        progress1.setProgressColor(Color.parseColor("#ed3b27"));
@@ -80,6 +84,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(this, KeyBoardActivity.class));
         }else if (v == btnBottomSheet){
             startActivity(new Intent(this, BottomSheetViewPageActivity.class));
+        }else if (v == btnVPinBottomSheet){
+            startActivity(new Intent(this, ViewPageInBottomSheetDialogActivity.class));
         }
 
     }
