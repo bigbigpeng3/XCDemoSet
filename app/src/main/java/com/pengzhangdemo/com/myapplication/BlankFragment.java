@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.pengzhangdemo.com.myapplication.adapter.LiveMessagePageAdapter;
+import com.pengzhangdemo.com.myapplication.fragment.MessageFirendsListFragment;
 
 import java.util.ArrayList;
 import java.util.List;
