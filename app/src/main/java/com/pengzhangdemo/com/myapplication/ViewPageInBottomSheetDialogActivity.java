@@ -1,5 +1,6 @@
 package com.pengzhangdemo.com.myapplication;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.BottomSheetDialog;
@@ -112,9 +113,13 @@ public class ViewPageInBottomSheetDialogActivity extends AppCompatActivity imple
 
     private void showBottomSheetFragment() {
         final ViewPageDialogFragment dialogFragment = new ViewPageDialogFragment();
-
-
         dialogFragment.show(getSupportFragmentManager(), dialogFragment.getTag());
+//        dialogFragment.setOnDismissListener(new DialogInterface.OnDismissListener() {
+//            @Override
+//            public void onDismiss(DialogInterface dialog) {
+//
+//            }
+//        });
     }
 
 

@@ -1,17 +1,18 @@
 package com.pengzhangdemo.com.myapplication.fragment;
 
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.view.WindowManager;
 
 import com.pengzhangdemo.com.myapplication.R;
 import com.pengzhangdemo.com.myapplication.adapter.LiveMessagePageAdapter;
@@ -34,11 +35,6 @@ public class ViewPageDialogFragment extends NoBarBottomSheetDialogFragment {
 
     private View view;
 
-//    @Override
-//    public void setupDialog(Dialog dialog, int style) {
-//        super.setupDialog(dialog, style);
-//        dialog.setContentView(view);
-//    }
 
     @Nullable
     @Override
@@ -67,11 +63,14 @@ public class ViewPageDialogFragment extends NoBarBottomSheetDialogFragment {
 
 //        dialog.getWindow().findViewById(android.support.design.R.id.design_bottom_sheet).setBackgroundColor(view.getContext().getApplicationContext().getResources().getColor(R.color.transparent));
 //        dialog.getDelegate().findViewById(android.support.design.R.id.design_bottom_sheet).setBackgroundColor(view.getContext().getApplicationContext().getResources().getColor(R.color.transparent));
-
         dialog.getWindow().setDimAmount(0);
         super.onViewCreated(view, savedInstanceState);
     }
 
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+        return super.onCreateDialog(savedInstanceState);
+    }
 
     private void setupViewPager() {
         if (messageListFrags == null) {
@@ -95,6 +94,13 @@ public class ViewPageDialogFragment extends NoBarBottomSheetDialogFragment {
     }
 
 
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        dialog = (BottomSheetDialog) getDialog();
+        dialog.getDelegate().findViewById(android.support.design.R.id.design_bottom_sheet).setBackgroundColor(view.getContext().getApplicationContext().getResources().getColor(R.color.transparent));
+    }
+
     /**
      * 允许设置 dialog消失 监听器
      *
@@ -108,9 +114,14 @@ public class ViewPageDialogFragment extends NoBarBottomSheetDialogFragment {
     /**
      * 会造成空指针异常。
      */
-    public void setTransparentBackground(){
+    public void setTransparentBackground() {
         dialog.getDelegate().findViewById(android.support.design.R.id.design_bottom_sheet).setBackgroundColor(view.getContext().getApplicationContext().getResources().getColor(R.color.transparent));
     }
 
 
+    @Override
+    public void show(FragmentManager manager, String tag) {
+        this.dialog = (BottomSheetDialog) getDialog();
+        super.show(manager, tag);
+    }
 }
