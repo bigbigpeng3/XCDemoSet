@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnkeyboard;
     private Button btnBottomSheet;
     private Button btnVPinBottomSheet;
+    private Button btnLiveGift;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +50,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnVPinBottomSheet = (Button) findViewById(R.id.btn_vp_in_bottom_sheet);
         btnVPinBottomSheet.setOnClickListener(this);
+
+        btnLiveGift = (Button) findViewById(R.id.btn_live_gift);
+        btnLiveGift.setOnClickListener(this);
 
         findViewById(R.id.btn_normal_fragment).setOnClickListener(this);
 //        RoundCornerProgressBar progress1 = (RoundCornerProgressBar) findViewById(R.id.progress_1);
@@ -89,6 +93,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(this, ViewPageInBottomSheetDialogActivity.class));
         }else if (v.getId() == R.id.btn_normal_fragment){
             startActivity(new Intent(this, FragmentActivity.class));
+        }else if (v == btnLiveGift){//直播礼物界面
+            startActivity(new Intent(this, LiveGiftActivity.class));
         }
 
     }

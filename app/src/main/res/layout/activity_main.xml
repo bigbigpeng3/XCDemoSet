@@ -53,10 +53,10 @@
 
             android:layout_marginBottom="3dp"
             android:ellipsize="marquee"
-            android:marqueeRepeatLimit="-1"
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:gravity="center"
+            android:marqueeRepeatLimit="-1"
             android:singleLine="true"
 
             android:text="有了安全卫士，你再也不用为手机烦恼了。生活会越来越好。日子越过越舒服"
@@ -81,63 +81,72 @@
 
         <TextView
             android:id="@+id/tv_spannable"
-            android:text="Spannable测试，不用为手机烦恼了。生活会越来越好。日子越过越舒服"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="Spannable测试，不用为手机烦恼了。生活会越来越好。日子越过越舒服"/>
 
 
         <TextView
 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="#4C000000"
+
             android:shadowColor="#000000"
-            android:shadowRadius="1"
             android:shadowDx="0"
             android:shadowDy="1"
-
-            android:layout_marginTop="5dp"
-            android:textSize="16sp"
-            android:background="#4C000000"
-            android:textColor="@android:color/white"
+            android:shadowRadius="1"
             android:text="字体阴影测试，不用为手机烦恼了。生活会越来越好。日子越过越舒服"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:textColor="@android:color/white"
+            android:textSize="16sp"/>
 
         <Button
             android:id="@+id/btn_video"
-            android:text="获取视频地址，缩略图，点击播放"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="获取视频地址，缩略图，点击播放"/>
 
         <Button
             android:id="@+id/btn_record"
-            android:text="视频录制质量测试"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="视频录制质量测试"/>
 
 
         <Button
             android:id="@+id/btn_keyboard"
-            android:text="键盘弹起测试"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="键盘弹起测试"/>
 
 
         <Button
             android:id="@+id/btn_bottom_sheet"
-            android:text="BottomSheet + Tablayout + viewPager"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="BottomSheet + Tablayout + viewPager"/>
 
         <Button
             android:id="@+id/btn_vp_in_bottom_sheet"
-            android:text="viewPager in BottomSheetDialog"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="viewPager in BottomSheetDialog"/>
 
         <Button
             android:id="@+id/btn_normal_fragment"
-            android:text="普通fragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="普通fragment展示Sheet"/>
+
+        <Button
+            android:id="@+id/btn_live_gift"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="直播送礼物效果"/>
+
+
+
 
 
         <!--android:indeterminate="false"-->

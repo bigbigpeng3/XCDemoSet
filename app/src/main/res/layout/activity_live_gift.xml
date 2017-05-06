@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.pengzhangdemo.com.myapplication.LiveGiftActivity">
+
+
+    <com.pengzhangdemo.com.myapplication.gift.GiftView
+        android:id="@+id/giftView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+
+        android:layout_weight="1"/>
+
+    <!--android:layout_marginTop="95dp"-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/btn_send_gift1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="送礼物1"/>
+
+        <Button
+            android:id="@+id/btn_send_gift2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="送礼物2"/>
+
+        <Button
+            android:id="@+id/btn_send_gift3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="送礼物3"/>
+
+        <Button
+            android:id="@+id/btn_send_gift4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="送礼物4"/>
+
+        <Button
+            android:id="@+id/btn_send_gift5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="送礼物5"/>
+
+        <Button
+            android:id="@+id/btn_send_gift6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="送礼物6"/>
+
+    </LinearLayout>
+
+
+</RelativeLayout>

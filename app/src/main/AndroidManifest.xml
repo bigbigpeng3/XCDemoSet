@@ -30,6 +30,8 @@
         <activity android:name=".BottomSheetViewPageActivity"/>
         <activity android:name=".ViewPageInBottomSheetDialogActivity"/>
         <activity android:name=".FragmentActivity"/>
+        <activity android:name=".LiveGiftActivity">
+        </activity>
     </application>
 
 </manifest>
