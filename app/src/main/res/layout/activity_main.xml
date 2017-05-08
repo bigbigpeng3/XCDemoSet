@@ -145,9 +145,18 @@
             android:layout_height="wrap_content"
             android:text="直播送礼物效果"/>
 
+        <Button
+            android:id="@+id/btn_num_pic"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="数字转图片效果"/>
 
 
-
+        <Button
+            android:id="@+id/btn_num_pic1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="数字转图片效果1"/>
 
         <!--android:indeterminate="false"-->
         <!--android:indeterminateOnly="false"-->

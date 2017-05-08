@@ -179,6 +179,10 @@ public class FixedHexagonImageView extends ImageView {
 
         canvas.drawPath(path, mPaint);
 
+//        canvas.drawText();
+
+
+
     }
 
 

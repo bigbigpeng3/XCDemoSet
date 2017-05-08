@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.pengzhangdemo.com.myapplication.NumToPicActivity">
+
+
+    <TextView
+        android:id="@+id/tv_span"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"/>
+
+
+    <com.pengzhangdemo.com.myapplication.numpic.NumToPicView
+        android:id="@+id/num_pic_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"/>
+
+
+    <com.pengzhangdemo.com.myapplication.numpic.NumView
+        android:id="@+id/nv_change"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        />
+
+    <com.pengzhangdemo.com.myapplication.widget.StrokeTextView
+        android:id="@+id/tv_ttf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textSize="30sp"
+        android:text="1234567890"
+        app:innnerColor="#F3E275"
+        app:outerColor="@color/black"
+        />
+
+    <!-- 下方按钮区域 -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="add 1"/>
+
+        <Button
+            android:id="@+id/btn_add_ten"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="add 10"
+            android:textColor="#ff995533"/>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

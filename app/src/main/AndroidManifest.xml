@@ -32,6 +32,8 @@
         <activity android:name=".FragmentActivity"/>
         <activity android:name=".LiveGiftActivity">
         </activity>
+        <activity android:name=".NumToPicActivity"/>
+        <activity android:name=".DigitalActivity"/>
     </application>
 
 </manifest>

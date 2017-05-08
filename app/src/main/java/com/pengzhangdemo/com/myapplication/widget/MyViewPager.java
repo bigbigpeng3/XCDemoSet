@@ -1,4 +1,4 @@
-package com.pengzhangdemo.com.myapplication;
+package com.pengzhangdemo.com.myapplication.widget;
 
 import android.content.Context;
 import android.support.v4.view.ViewPager;

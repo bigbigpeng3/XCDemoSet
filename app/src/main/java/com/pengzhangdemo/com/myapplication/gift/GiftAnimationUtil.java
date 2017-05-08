@@ -54,7 +54,6 @@ public class GiftAnimationUtil {
     }
 
 
-
     /**
      * @param target
      * @return 送礼数字变化
@@ -66,7 +65,7 @@ public class GiftAnimationUtil {
                 1.2f, 0.8f, 1f);
         PropertyValuesHolder anim6 = PropertyValuesHolder.ofFloat("alpha",
                 1.0f, 0f, 1f);
-        ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(target, anim4, anim5, anim6).setDuration(480);
+        ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(target, anim4, anim5, anim6).setDuration(400);
         return animator;
 
     }
@@ -140,4 +139,21 @@ public class GiftAnimationUtil {
         return animSet;
     }
 
+    public static AnimatorSet startAnimation(ObjectAnimator fadeAnimator, ObjectAnimator fadeAnimator2) {
+
+        AnimatorSet animSet = new AnimatorSet();
+        animSet.play(fadeAnimator2).after(fadeAnimator);
+        animSet.start();
+        return animSet;
+    }
+
+
+    // 设置而不执行动画
+    public static AnimatorSet setAnimation(ObjectAnimator fadeAnimator, ObjectAnimator fadeAnimator2) {
+
+        AnimatorSet animSet = new AnimatorSet();
+        animSet.play(fadeAnimator2).after(fadeAnimator);
+//        animSet.start();
+        return animSet;
+    }
 }

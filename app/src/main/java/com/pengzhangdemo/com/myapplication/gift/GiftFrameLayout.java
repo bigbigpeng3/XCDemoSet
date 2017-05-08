@@ -5,6 +5,8 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -21,7 +23,9 @@ import com.pengzhangdemo.com.myapplication.utils.LogUtils;
 import com.pengzhangdemo.com.myapplication.widget.StrokeTextView;
 
 
-public class GiftFrameLayout extends FrameLayout {
+public class GiftFrameLayout extends FrameLayout implements Handler.Callback {
+
+    private static final int RESTART_GIFT_ANIMATION_CODE = 1002;
 
     private LayoutInflater mInflater;
 
@@ -33,14 +37,28 @@ public class GiftFrameLayout extends FrameLayout {
     /**
      * 礼物数量的起始值
      */
-    int starNum = 1;
-    int repeatCount = 0;
+    int starNum = 0;
+    int combo = 0;// 用户的点击送礼物次数。
     private boolean isShowing = false;
 
     private String nick;
 
     private ObjectAnimator scaleGiftNum;
-    private boolean scaleEnded = false;
+
+    private Handler mHandler = new Handler(this);
+
+    @Override
+    public boolean handleMessage(Message msg) {//暂时不需要任何的事件
+        switch (msg.what) {
+            case RESTART_GIFT_ANIMATION_CODE:
+//                comboAnimation();
+                break;
+            default:
+                break;
+        }
+        return true;
+    }
+
 
     public GiftFrameLayout(Context context) {
         this(context, null);
@@ -88,9 +106,11 @@ public class GiftFrameLayout extends FrameLayout {
 
     public void setModel(GiftSendModel model) {
         this.model = model;
+
         if (0 != model.getGiftCount()) {
-            this.repeatCount = model.getGiftCount();
-            setRepeatCount(model.getGiftCount());
+            starNum += model.getGiftCount();
+//            this.combo = model.getGiftCount();
+//            setCombo(model.getGiftCount());
         }
         if (!TextUtils.isEmpty(model.getNickname())) {
             anim_nickname.setText(model.getNickname());
@@ -105,31 +125,37 @@ public class GiftFrameLayout extends FrameLayout {
         return isShowing;
     }
 
-    public int getRepeatCount() {
-        return repeatCount;
+    public int getCombo() {
+        return combo;
     }
 
 
-    public void setRepeatCount(int repeatCount) {
-        LogUtils.e("GiftFrameLayout   setRepeatCount ");
-        this.repeatCount = repeatCount;
+    public void setCombo() {
+
+        LogUtils.e("GiftFrameLayout   setCombo ");
+        this.combo++;
         if (scaleGiftNum != null) {
 
-            if (scaleGiftNum.isRunning()) {
-                scaleGiftNum.setRepeatCount(repeatCount - 1);
-                LogUtils.e("GiftFrameLayout   setRepeatCount scaleGiftNum != null scaleGiftNum.isRunning()");
+            if (scaleGiftNum.isRunning()) {// 在运行就返回
+                if (combo > 0) { // 返回就说明这个动画没有执行。也是需要减去的。
+                    --combo;
+                }
                 return;
             }
-            //最好是在上面解决问题。那么就需要一个 零动作 动画，
-            //因为上面已经return了。所以不用担心动画在没有执行完成的情况，会执行到这里。
+
+
+//            mHandler.sendEmptyMessage(RESTART_GIFT_ANIMATION_CODE);//没有运行就 让它运行起来。
+            scaleGiftNum.start();
+//            mHandler.removeCallbacksAndMessages(null);// 每次的礼物连击，都要清除当前handle的Message
 
         } else {
-            LogUtils.e("GiftFrameLayout   setRepeatCount scaleGiftNum == null ");
+            LogUtils.e("GiftFrameLayout   setCombo scaleGiftNum == null ");
         }
 
     }
 
-    public AnimatorSet startAnimation(final int repeatCount) {
+    public void startAnimation() {
+
         hideView();
         //布局飞入
         ObjectAnimator flyFromLtoR = GiftAnimationUtil.createFlyFromLtoR(anim_rl, -getWidth(), 0, 500, new AccelerateInterpolator());
@@ -150,10 +176,104 @@ public class GiftFrameLayout extends FrameLayout {
             public void onAnimationEnd(Animator animation) {
 //                GiftAnimationUtil.startAnimationDrawable(anim_light);
                 anim_num.setVisibility(View.VISIBLE);
+                comboAnimation();
             }
 
         });
-        //礼物飞入
+
+        flyFromLtoR.start();
+    }
+
+
+    public void comboAnimation() {
+
+        //数量增加
+        scaleGiftNum = GiftAnimationUtil.scaleGiftNum(anim_num);
+        scaleGiftNum.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                anim_num.setVisibility(View.VISIBLE);
+                anim_num.setText("x " + starNum);
+//                anim_num.setText("x " + (++starNum));
+                mHandler.removeCallbacksAndMessages(null);//每个动画开始时，都需要清除之前的postDelayed事件。不然会出现bug。
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                if (combo > 0) {
+                    --combo;
+                }
+
+                if (combo == 0) {
+                    mHandler.postDelayed(giftEndRun, 3000);// 执行礼物消失动画
+                }
+
+            }
+        });
+        scaleGiftNum.start();
+    }
+
+
+    private Runnable giftEndRun = new Runnable() {
+        @Override
+        public void run() {
+            endAnimation().start();// 执行礼物消失动画
+        }
+    };
+
+
+    public AnimatorSet endAnimation() {
+
+        //向右渐变消失 startDuration可以控制 整个框框停留的时间。
+        ObjectAnimator fadeAnimator = GiftAnimationUtil.createFadeAnimator(GiftFrameLayout.this, 0, 100, 500, 0);
+        fadeAnimator.addListener(new AnimatorListenerAdapter() {
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                GiftFrameLayout.this.setVisibility(View.INVISIBLE);
+            }
+        });
+        // 复原 原本View的位置。
+        ObjectAnimator fadeAnimator2 = GiftAnimationUtil.createFadeAnimator(GiftFrameLayout.this, 100, 0, 20, 0);
+
+//        if (endAnimatorSet == null)
+        AnimatorSet endAnimatorSet = new AnimatorSet();
+        endAnimatorSet.play(fadeAnimator2).after(fadeAnimator);
+        endAnimatorSet.addListener(new AnimatorListenerAdapter() {
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                LogUtils.e("endAnimation() onAnimationEnd");
+                starNum = 0;// 恢复状态
+                isShowing = false;
+
+                if (giftEndListener != null) {// 能让Manager监听到动画结束
+                    giftEndListener.onGiftEnd();
+                }
+
+            }
+
+        });
+
+        return endAnimatorSet;
+    }
+
+
+    OnGiftEndListener giftEndListener;
+
+    public void setOnGiftEndListener(OnGiftEndListener listener) {
+        giftEndListener = listener;
+    }
+
+    public interface OnGiftEndListener {
+        void onGiftEnd();
+    }
+
+
+}
+
+
+//礼物飞入
 //        ObjectAnimator flyFromLtoR2 = GiftAnimationUtil.createFlyFromLtoR(anim_gift, -getWidth(), 0, 400,new DecelerateInterpolator());
 //        flyFromLtoR2.addListener(new AnimatorListenerAdapter() {
 //            @Override
@@ -167,68 +287,3 @@ public class GiftFrameLayout extends FrameLayout {
 //                     anim_num.setVisibility(View.VISIBLE);
 //            }
 //        });
-        //数量增加-*+/
-        scaleGiftNum = GiftAnimationUtil.scaleGiftNum(anim_num, repeatCount);
-        scaleGiftNum.addListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationRepeat(Animator animation) {
-                anim_num.setText("x " + (++starNum));
-            }
-
-        });
-        //向右渐变消失 startDuration可以控制 整个框框停留的时间。
-        ObjectAnimator fadeAnimator = GiftAnimationUtil.createFadeAnimator(GiftFrameLayout.this, 0, 100, 500, 3000);
-        fadeAnimator.addListener(new AnimatorListenerAdapter() {
-
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                GiftFrameLayout.this.setVisibility(View.INVISIBLE);
-            }
-        });
-        // 复原 原本View的位置。
-        ObjectAnimator fadeAnimator2 = GiftAnimationUtil.createFadeAnimator(GiftFrameLayout.this, 100, 0, 20, 0);
-
-        AnimatorSet animatorSet = GiftAnimationUtil.startAnimation(flyFromLtoR, scaleGiftNum, fadeAnimator, fadeAnimator2);
-        animatorSet.addListener(new AnimatorListenerAdapter() {
-
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                starNum = 1;
-                isShowing = false;
-            }
-
-        });
-        return animatorSet;
-    }
-
-
-    public void comboAnimation() {
-        //数量增加
-        ObjectAnimator scaleGiftNum = GiftAnimationUtil.scaleGiftNum(anim_num);
-        scaleGiftNum.addListener(new AnimatorListenerAdapter() {
-            @Override
-            public void onAnimationStart(Animator animation) {
-                anim_num.setVisibility(View.VISIBLE);
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animation) {
-
-//                if (mHandler != null) {
-//                    if (mGiftCount > mCombo) {//连击
-//                        mHandler.sendEmptyMessage(RESTART_GIFT_ANIMATION_CODE);
-//                    } else {
-//                        mCurrentAnimRunnable = new GiftNumAnimaRunnable();
-//                        mHandler.postDelayed(mCurrentAnimRunnable, GIFT_DISMISS_TIME);
-//                        checkGiftCountSubscribe();
-//                    }
-//                }
-
-
-            }
-        });
-        scaleGiftNum.start();
-    }
-
-
-}

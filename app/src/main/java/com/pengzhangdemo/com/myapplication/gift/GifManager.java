@@ -29,13 +29,17 @@ public class GifManager {
     }
 
     public void addGift(GiftSendModel giftSendModel) {
-        GiftFrameLayout showView = getShowCurrView(giftSendModel);
-        if (showView != null) {
-            //当前添加的礼物已经在播放了，直接修改播放次数
-            int count = giftSendModel.getGiftCount() + showView.getRepeatCount();
-            showView.setRepeatCount(count);
 
-            LogUtils.e("GifManager   addGift。。。。 showView != null showView.setRepeatCount(count);count = " + count);
+        GiftFrameLayout showView = getShowCurrView(giftSendModel);
+
+        if (showView != null) {
+
+            //当前添加的礼物已经在播放了，直接修改播放次数
+//            int count = giftSendModel.getGiftCount() + showView.getCombo();
+
+            showView.setModel(giftSendModel);
+            showView.setCombo();
+            LogUtils.e("GifManager   addGift。。。。 showView != null showView.setCombo(count);");
 
             return;
         }
@@ -97,11 +101,13 @@ public class GifManager {
             return;
         }
         view.setModel(model);
-        AnimatorSet animatorSet = view.startAnimation(model.getGiftCount());
-        animatorSet.addListener(new AnimatorListenerAdapter() {
+
+        view.startAnimation();//model.getGiftCount()
+
+        view.setOnGiftEndListener(new GiftFrameLayout.OnGiftEndListener() {
             @Override
-            public void onAnimationEnd(Animator animation) {
-                super.onAnimationEnd(animation);
+            public void onGiftEnd() {
+                LogUtils.e("GifManager   setOnGiftEndListener。。。。  synchronized (queue)");
                 synchronized (queue) {
                     //礼物队列里还存在礼物的情况
                     if (!queue.isEmpty()) {
@@ -110,5 +116,24 @@ public class GifManager {
                 }
             }
         });
+
     }
 }
+
+
+//        AnimatorSet animatorSet = view.endAnimation();// 获取结束后动画的调用
+//        view.endAnimation().addListener(new AnimatorListenerAdapter() {
+//            @Override
+//            public void onAnimationEnd(Animator animation) {
+//
+//                LogUtils.e("GifManager   beginAnimotion。。。。  synchronized (queue)");
+//                super.onAnimationEnd(animation);
+//
+//                synchronized (queue) {
+//                    //礼物队列里还存在礼物的情况
+//                    if (!queue.isEmpty()) {
+//                        beginAnimotion(view);
+//                    }
+//                }
+//            }
+//        });
