@@ -6,7 +6,6 @@ import android.graphics.Paint;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -14,7 +13,7 @@ import java.util.ArrayList;
  * Created by lmt on 16/11/1.
  */
 
-public class RandomTextView extends TextView {
+public class RandomTextView extends android.support.v7.widget.AppCompatTextView {
     //高位快
     public static final int FIRSTF_FIRST = 0;
     //高位慢
@@ -261,6 +260,7 @@ public class RandomTextView extends TextView {
                 handler.postDelayed(this, 20);
 
                 for (int j = 0; j < numLength; j++) {
+
                     pianyiliangSum[j] -= pianyilianglist[j];
 
                 }

@@ -95,10 +95,10 @@
 
             android:shadowColor="#000000"
             android:shadowDx="0"
-            android:shadowDy="1"
-            android:shadowRadius="1"
+            android:shadowDy="0"
+            android:shadowRadius="10"
             android:text="字体阴影测试，不用为手机烦恼了。生活会越来越好。日子越过越舒服"
-            android:textColor="@android:color/white"
+            android:textColor="#F3E275"
             android:textSize="16sp"/>
 
         <Button

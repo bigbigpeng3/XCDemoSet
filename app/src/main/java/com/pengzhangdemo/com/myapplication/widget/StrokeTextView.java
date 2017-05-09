@@ -4,10 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.text.Spannable;
-import android.text.SpannableString;
 import android.text.TextPaint;
-import android.text.style.ScaleXSpan;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
@@ -60,13 +57,14 @@ public class StrokeTextView extends RandomTextView {
             setTextColorUseReflection(mOuterColor);
             m_TextPaint.setStrokeWidth(8);
             m_TextPaint.setStyle(Paint.Style.FILL_AND_STROKE);
-
+//            m_TextPaint.setStro
 //            m_TextPaint.setTypeface(TextTypeUtils.getLevelTypeFace(getContext()));
             super.onDraw(canvas);
 
             // 描内层，恢复原先的画笔
             setTextColorUseReflection(mInnerColor);
             m_TextPaint.setStrokeWidth(0);
+//            m_TextPaint.setStrokeColor
             m_TextPaint.setStyle(Paint.Style.FILL_AND_STROKE);
 
             m_TextPaint.setTypeface(TextTypeUtils.getLevelTypeFace(getContext()));
