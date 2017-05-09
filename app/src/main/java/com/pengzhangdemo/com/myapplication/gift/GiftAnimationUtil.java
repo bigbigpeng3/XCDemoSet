@@ -58,11 +58,11 @@ public class GiftAnimationUtil {
      * @param target
      * @return 送礼数字变化
      */
-    public static ObjectAnimator scaleGiftNum(final TextView target) {
+    public static ObjectAnimator scaleGiftNum(final View target) {
         PropertyValuesHolder anim4 = PropertyValuesHolder.ofFloat("scaleX",
-                1.2f, 0.8f, 1f);
+                1.3f, 0.8f, 1f);
         PropertyValuesHolder anim5 = PropertyValuesHolder.ofFloat("scaleY",
-                1.2f, 0.8f, 1f);
+                1.3f, 0.8f, 1f);
         PropertyValuesHolder anim6 = PropertyValuesHolder.ofFloat("alpha",
                 1.0f, 0f, 1f);
         ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(target, anim4, anim5, anim6).setDuration(400);

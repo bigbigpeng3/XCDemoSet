@@ -1,4 +1,4 @@
-package com.pengzhangdemo.com.myapplication.utils;
+package com.robinhood.ticker;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -17,7 +17,7 @@ public class TextTypeUtils {
      *  等级 字体
      * @return
      */
-    public static Typeface getLevelTypeFace(Context context){
+    public static Typeface getRoundTypeFace(Context context){
 
         try{
             fontFace = Typeface.createFromAsset(context.getApplicationContext().getResources().getAssets(), "fonts/scroll.ttf");

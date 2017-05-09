@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ticker_border_color">@android:color/black</color>
+    <color name="ticker_inner_color">#F3E275</color>
+
+
+</resources>

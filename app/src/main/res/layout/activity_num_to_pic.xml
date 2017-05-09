@@ -35,11 +35,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:textSize="30sp"
         android:text="1234567890"
+        android:textSize="30sp"
         app:innnerColor="#F3E275"
         app:outerColor="@color/black"
         />
+
+
+    <com.robinhood.ticker.MyTickerView
+        android:background="@android:color/holo_red_light"
+        android:id="@+id/tv_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TickerTextAppearance"/>
+
+
+    <com.robinhood.ticker.TickerView
+        android:background="@android:color/holo_red_light"
+        android:id="@+id/tv_num1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TickerTextAppearance"/>
 
     <!-- 下方按钮区域 -->
     <LinearLayout

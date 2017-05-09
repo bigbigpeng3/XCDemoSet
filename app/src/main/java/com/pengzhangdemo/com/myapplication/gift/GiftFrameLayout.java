@@ -20,7 +20,9 @@ import android.widget.TextView;
 
 import com.pengzhangdemo.com.myapplication.R;
 import com.pengzhangdemo.com.myapplication.utils.LogUtils;
-import com.pengzhangdemo.com.myapplication.widget.StrokeTextView;
+import com.pengzhangdemo.com.myapplication.utils.TextTypeUtils;
+import com.robinhood.ticker.MyTickerView;
+import com.robinhood.ticker.TickerUtils;
 
 
 public class GiftFrameLayout extends FrameLayout implements Handler.Callback {
@@ -30,9 +32,9 @@ public class GiftFrameLayout extends FrameLayout implements Handler.Callback {
     private LayoutInflater mInflater;
 
     LinearLayout anim_rl;
-    ImageView anim_gift, anim_header;//anim_light
+    ImageView anim_gift, anim_header,anim_x;//anim_light
     TextView anim_nickname, anim_sign;
-    StrokeTextView anim_num;
+    MyTickerView anim_num;
 
     /**
      * 礼物数量的起始值
@@ -76,10 +78,21 @@ public class GiftFrameLayout extends FrameLayout implements Handler.Callback {
         anim_rl = (LinearLayout) view.findViewById(R.id.animation_person_rl);
         anim_gift = (ImageView) view.findViewById(R.id.animation_gift);
 //        anim_light = (ImageView) view.findViewById(R.id.animation_light);
-        anim_num = (StrokeTextView) view.findViewById(R.id.animation_num);
+        anim_num = (MyTickerView) view.findViewById(R.id.animation_num);
         anim_header = (ImageView) view.findViewById(R.id.gift_userheader_iv);
+        anim_x = (ImageView) view.findViewById(R.id.iv_x);
         anim_nickname = (TextView) view.findViewById(R.id.gift_usernickname_tv);
         anim_sign = (TextView) view.findViewById(R.id.gift_usersign_tv);
+
+
+        //设置 可以滑动的文字
+        anim_num.setCharacterList(TickerUtils.getDefaultReverseNumberList());
+        anim_num.setTypeface(TextTypeUtils.getLevelTypeFace(getContext().getApplicationContext()));
+        anim_num.setTextColor(this.getResources().getColor(R.color.ticker_inner_color));
+
+        // 设置文字间的间距
+        anim_num.setPadding(3);
+
         this.addView(view);
     }
 
@@ -87,6 +100,7 @@ public class GiftFrameLayout extends FrameLayout implements Handler.Callback {
         anim_gift.setVisibility(INVISIBLE);
 //        anim_light.setVisibility(INVISIBLE);
         anim_num.setVisibility(INVISIBLE);
+        anim_x.setVisibility(INVISIBLE);
     }
 
     public String getNick() {
@@ -166,7 +180,7 @@ public class GiftFrameLayout extends FrameLayout implements Handler.Callback {
                 GiftFrameLayout.this.setVisibility(View.VISIBLE);
                 GiftFrameLayout.this.setAlpha(1f);
                 isShowing = true;
-                anim_num.setText("x " + 1);
+                anim_num.setText("" + 1);
                 Log.i("TAG", "flyFromLtoR A start");
 
                 anim_gift.setVisibility(View.VISIBLE);
@@ -176,6 +190,7 @@ public class GiftFrameLayout extends FrameLayout implements Handler.Callback {
             public void onAnimationEnd(Animator animation) {
 //                GiftAnimationUtil.startAnimationDrawable(anim_light);
                 anim_num.setVisibility(View.VISIBLE);
+                anim_x.setVisibility(VISIBLE);
                 comboAnimation();
             }
 
@@ -193,13 +208,16 @@ public class GiftFrameLayout extends FrameLayout implements Handler.Callback {
             @Override
             public void onAnimationStart(Animator animation) {
                 anim_num.setVisibility(View.VISIBLE);
-                anim_num.setText("x " + starNum);
+                anim_x.setVisibility(VISIBLE);
 //                anim_num.setText("x " + (++starNum));
                 mHandler.removeCallbacksAndMessages(null);//每个动画开始时，都需要清除之前的postDelayed事件。不然会出现bug。
             }
 
             @Override
             public void onAnimationEnd(Animator animation) {
+
+                anim_num.setText("" + starNum);
+
                 if (combo > 0) {
                     --combo;
                 }

@@ -6,7 +6,6 @@ import android.graphics.Paint;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -14,7 +13,7 @@ import java.util.ArrayList;
  * Created by lmt on 16/11/1.
  */
 
-public class RandomTextView extends android.support.v7.widget.AppCompatTextView {
+public class SaveRandomTextView extends android.support.v7.widget.AppCompatTextView {
     //高位快
     public static final int FIRSTF_FIRST = 0;
     //高位慢
@@ -59,15 +58,15 @@ public class RandomTextView extends android.support.v7.widget.AppCompatTextView 
     private int measuredHeight;
 
 
-    public RandomTextView(Context context) {
+    public SaveRandomTextView(Context context) {
         super(context);
     }
 
-    public RandomTextView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SaveRandomTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
-    public RandomTextView(Context context, AttributeSet attrs) {
+    public SaveRandomTextView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
@@ -242,7 +241,7 @@ public class RandomTextView extends android.support.v7.widget.AppCompatTextView 
 
     }
 
-
+    ;
 
 
     private static final Handler handler = new Handler();

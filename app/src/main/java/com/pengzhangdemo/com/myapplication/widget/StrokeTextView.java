@@ -56,6 +56,7 @@ public class StrokeTextView extends RandomTextView {
             // 描外层
             setTextColorUseReflection(mOuterColor);
             m_TextPaint.setStrokeWidth(8);
+            m_TextPaint.setAntiAlias(true);
             m_TextPaint.setStyle(Paint.Style.FILL_AND_STROKE);
 //            m_TextPaint.setStro
 //            m_TextPaint.setTypeface(TextTypeUtils.getLevelTypeFace(getContext()));

@@ -19,6 +19,7 @@
     <!--android:layout_marginTop="95dp"-->
 
     <LinearLayout
+        android:id="@+id/ll_one"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -69,5 +70,58 @@
 
     </LinearLayout>
 
+
+
+
+    <LinearLayout
+        android:layout_above="@+id/ll_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/btn_send_gift12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="送礼物12"/>
+
+        <Button
+            android:id="@+id/btn_send_gift22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="送礼物22"/>
+
+        <Button
+            android:id="@+id/btn_send_gift32"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="送礼物32"/>
+
+        <Button
+            android:id="@+id/btn_send_gift42"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="送礼物42"/>
+
+        <Button
+            android:id="@+id/btn_send_gift52"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="送礼物52"/>
+
+        <Button
+            android:id="@+id/btn_send_gift62"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="送礼物62"/>
+
+    </LinearLayout>
 
 </RelativeLayout>
