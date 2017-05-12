@@ -198,45 +198,42 @@ public class FixedHexoRoundPathView extends View {
 
 
     private int totalTime;
+    private TimerListener mTimerListener;
 
     public void timeTaskStart() {
+        timeTaskStop();
         if (timer == null && task == null) {
             totalTime = DELAY;
             timer = new Timer();
             task = new TimerTask() {
                 @Override
                 public void run() {
-                    totalTime -= 16;
-                    if (totalTime < 0) {
-                        totalTime = 0;
-                    }
-                    post(new Runnable() {
-                        @Override
-                        public void run() {
-                            dst.reset();
-                            boolean segment = pathMeasure.getSegment(0, pathMeasure.getLength() * totalTime / DELAY, dst, true);
-                            Log.e("timeTaskStart", "run totalTime = " + totalTime + " segment = " + segment);
-                            postInvalidate();
-                        }
-                    });
-                    if (totalTime <= 0) {
-                        if (timer != null) {
-                            timer.cancel();
-                            timer = null;
-                        }
-
-                        if (task != null) {
-                            task.cancel();
-                            task = null;
-                        }
-                    }
+                    post(mRunnable);//抛到主线程执行
                 }
             };
+            if (mTimerListener != null) {
+                mTimerListener.onStart();
+            }
             timer.schedule(task, 16, 16);
         }
-
-
     }
+
+    private Runnable mRunnable = new Runnable() {
+        @Override
+        public void run() {
+            totalTime -= 16;
+            if (totalTime < 0) {
+                totalTime = 0;
+            }
+            dst.reset();
+            boolean segment = pathMeasure.getSegment(0, pathMeasure.getLength() * totalTime / DELAY, dst, true);
+            Log.e("timeTaskStart", "run totalTime = " + totalTime + " segment = " + segment);
+            postInvalidate();
+            if (totalTime <= 0) {
+                timeTaskStop();
+            }
+        }
+    };
 
     public void timeTaskStop() {
         if (task != null) {
@@ -246,6 +243,19 @@ public class FixedHexoRoundPathView extends View {
         if (timer != null) {
             timer.cancel();
             timer = null;
+            if (mTimerListener != null) {
+                mTimerListener.onEnd();
+            }
+        }
+    }
+
+    public static class TimerListener {
+        void onStart() {
+
+        }
+
+        void onEnd() {
+
         }
     }
 

@@ -25,7 +25,6 @@ public class GiftRemainActivity extends AppCompatActivity {
 
     public void onClick1(View view) {
         FixedHexoRoundPathView pathView = (FixedHexoRoundPathView) view;
-        pathView.timeTaskStop();
         pathView.timeTaskStart();
 
     }
