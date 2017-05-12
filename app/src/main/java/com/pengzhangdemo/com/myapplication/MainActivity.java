@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnNumPic;
     private Button btnNumPic1;
     private Button btnGiftRemain;
+    private Button btnDanmu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +65,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnGiftRemain = (Button) findViewById(R.id.btn_gift_remain);
         btnGiftRemain.setOnClickListener(this);
+
+        btnDanmu = (Button) findViewById(R.id.btn_danmu);
+        btnDanmu.setOnClickListener(this);
 
         findViewById(R.id.btn_normal_fragment).setOnClickListener(this);
 //        RoundCornerProgressBar progress1 = (RoundCornerProgressBar) findViewById(R.id.progress_1);
@@ -109,6 +113,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(this, DigitalActivity.class));
         } else if (v == btnGiftRemain) {// 礼物倒计时
             startActivity(new Intent(this, GiftRemainActivity.class));
+        } else if (v == btnDanmu) {// 用户弹幕
+            startActivity(new Intent(this, DanmuActivity.class));
         }
 
     }

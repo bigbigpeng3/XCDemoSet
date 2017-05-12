@@ -18,13 +18,10 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
 /**
  * 绘制多边形
  */
-public class FixedHexoRoundPathView extends View {
+public class OldFixedHexoRoundPathView extends View {
 
     public static final int DELAY = 3 * 1000;
 
@@ -36,18 +33,16 @@ public class FixedHexoRoundPathView extends View {
     private int strokeWidth = 10;
     int start = -120;
     private float radius;
-    private Timer timer;
-    private TimerTask task;
 
-    public FixedHexoRoundPathView(Context context) {
+    public OldFixedHexoRoundPathView(Context context) {
         this(context, null);
     }
 
-    public FixedHexoRoundPathView(Context context, AttributeSet attrs) {
+    public OldFixedHexoRoundPathView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public FixedHexoRoundPathView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public OldFixedHexoRoundPathView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initPaint();
     }
@@ -80,8 +75,8 @@ public class FixedHexoRoundPathView extends View {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        width = w;
-        height = h;
+        width = w ;
+        height = h ;
         int temp = Math.min(w, h);
         radius = temp / 2 - 2 * strokeWidth;
 
@@ -95,7 +90,7 @@ public class FixedHexoRoundPathView extends View {
 //        canvas.translate(width, raduis);//
 ////        canvas.translate(width / 2f, height / 2f);//
         canvas.save();
-        canvas.scale(0.8f, 0.8f, width / 2f, height / 2f);
+        canvas.scale(0.8f,0.8f,width / 2f, height / 2f);
 
         beneathPaint.setColor(Color.GRAY);
         beneathPaint.setStrokeWidth(strokeWidth);
@@ -107,7 +102,6 @@ public class FixedHexoRoundPathView extends View {
         canvas.drawPath(dst, beneathPaint);
 
         canvas.restore();
-        Log.e("onDraw", "onDraw: " + new PathMeasure(dst, true).getLength());
     }
 
     /**
@@ -169,7 +163,7 @@ public class FixedHexoRoundPathView extends View {
                         // 灰色每次都需要更新长度，这样就会有一个动画效果。
                         pathMeasure.getSegment(0, pathMeasure.getLength() - (pathMeasure.getLength() * value) / DELAY, dst, true);
                     }
-                    FixedHexoRoundPathView.this.postInvalidate();
+                    OldFixedHexoRoundPathView.this.postInvalidate();
                 }
             });
 
@@ -194,59 +188,6 @@ public class FixedHexoRoundPathView extends View {
             animator.cancel();
         }
         animator.start();
-    }
-
-
-    private int totalTime;
-
-    public void timeTaskStart() {
-        if (timer == null && task == null) {
-            totalTime = DELAY;
-            timer = new Timer();
-            task = new TimerTask() {
-                @Override
-                public void run() {
-                    totalTime -= 16;
-                    if (totalTime < 0) {
-                        totalTime = 0;
-                    }
-                    post(new Runnable() {
-                        @Override
-                        public void run() {
-                            dst.reset();
-                            boolean segment = pathMeasure.getSegment(0, pathMeasure.getLength() * totalTime / DELAY, dst, true);
-                            Log.e("timeTaskStart", "run totalTime = " + totalTime + " segment = " + segment);
-                            postInvalidate();
-                        }
-                    });
-                    if (totalTime <= 0) {
-                        if (timer != null) {
-                            timer.cancel();
-                            timer = null;
-                        }
-
-                        if (task != null) {
-                            task.cancel();
-                            task = null;
-                        }
-                    }
-                }
-            };
-            timer.schedule(task, 16, 16);
-        }
-
-
-    }
-
-    public void timeTaskStop() {
-        if (task != null) {
-            task.cancel();
-            task = null;
-        }
-        if (timer != null) {
-            timer.cancel();
-            timer = null;
-        }
     }
 
     //pathMeasure.getLength() -

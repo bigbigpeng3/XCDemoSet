@@ -36,6 +36,8 @@
         <activity android:name=".DigitalActivity"/>
         <activity android:name=".GiftRemainActivity">
         </activity>
+        <activity android:name=".DanmuActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -153,6 +153,12 @@
             android:text="送礼物倒计时"/>
 
         <Button
+            android:id="@+id/btn_danmu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="弹幕效果1"/>
+
+        <Button
             android:id="@+id/btn_num_pic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
