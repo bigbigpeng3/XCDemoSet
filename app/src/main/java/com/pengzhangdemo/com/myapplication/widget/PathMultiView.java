@@ -23,7 +23,7 @@ import android.view.animation.LinearInterpolator;
  */
 public class PathMultiView extends View {
 
-    public static final int DELAY = 30 * 1000;
+    public static final int DELAY = 3 * 1000;
 
     private Paint beneathPaint;
     private Path path;

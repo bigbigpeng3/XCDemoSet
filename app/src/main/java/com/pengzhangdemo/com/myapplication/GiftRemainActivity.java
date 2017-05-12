@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.pengzhangdemo.com.myapplication.widget.FixedHexoRoundPathView;
-import com.pengzhangdemo.com.myapplication.widget.FixedPathMultiView;
 import com.pengzhangdemo.com.myapplication.widget.PathMultiView;
 
 public class GiftRemainActivity extends AppCompatActivity {
@@ -25,7 +24,9 @@ public class GiftRemainActivity extends AppCompatActivity {
     }
 
     public void onClick1(View view) {
-        ((FixedHexoRoundPathView) view).animation();
+        FixedHexoRoundPathView pathView = (FixedHexoRoundPathView) view;
+        pathView.timeTaskStop();
+        pathView.timeTaskStart();
 
     }
 }
