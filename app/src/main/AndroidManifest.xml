@@ -34,6 +34,8 @@
         </activity>
         <activity android:name=".NumToPicActivity"/>
         <activity android:name=".DigitalActivity"/>
+        <activity android:name=".GiftRemainActivity">
+        </activity>
     </application>
 
 </manifest>

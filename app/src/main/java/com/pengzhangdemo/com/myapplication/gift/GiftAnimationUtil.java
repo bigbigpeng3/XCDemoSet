@@ -49,7 +49,6 @@ public class GiftAnimationUtil {
      * @param drawable 设置帧动画
      */
     public static void setAnimationDrawable(ImageView target, AnimationDrawable drawable) {
-
         target.setBackground(drawable);
     }
 
@@ -65,7 +64,7 @@ public class GiftAnimationUtil {
                 1.3f, 0.8f, 1f);
         PropertyValuesHolder anim6 = PropertyValuesHolder.ofFloat("alpha",
                 1.0f, 0f, 1f);
-        ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(target, anim4, anim5, anim6).setDuration(400);
+        ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(target, anim4, anim5, anim6).setDuration(500);
         return animator;
 
     }

@@ -69,7 +69,8 @@ public class TickerUtils {
 
     public static char[] getDefaultReverseNumberList() {
         final char[] charList = new char[11];
-        charList[0] = EMPTY_CHAR;
+//        charList[0] = EMPTY_CHAR;
+        charList[0] = (char) (48);
         for (int i = 9; i >= 0; i--) {
             charList[9 - i + 1] = (char) (i + 48);
         }

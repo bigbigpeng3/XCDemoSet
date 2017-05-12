@@ -14,7 +14,6 @@ import com.pengzhangdemo.com.myapplication.videorecord.RecordActvity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-
     private TextView spannableText;
     private Button btnVideo;
     private Button btnRecord;
@@ -24,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnLiveGift;
     private Button btnNumPic;
     private Button btnNumPic1;
+    private Button btnGiftRemain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +58,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnNumPic = (Button) findViewById(R.id.btn_num_pic);
         btnNumPic.setOnClickListener(this);
+
         btnNumPic1 = (Button) findViewById(R.id.btn_num_pic1);
         btnNumPic1.setOnClickListener(this);
+
+        btnGiftRemain = (Button) findViewById(R.id.btn_gift_remain);
+        btnGiftRemain.setOnClickListener(this);
 
         findViewById(R.id.btn_normal_fragment).setOnClickListener(this);
 //        RoundCornerProgressBar progress1 = (RoundCornerProgressBar) findViewById(R.id.progress_1);
@@ -79,33 +83,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
      * 富文本的相关UI
      */
     private void initSpannableText() {
-
         spannableText = (TextView) findViewById(R.id.tv_spannable);
-
-
     }
 
 
     @Override
     public void onClick(View v) {
-        if (v == btnVideo){
+        if (v == btnVideo) {
             startActivity(new Intent(this, VideoListActivity.class));
-        }else if (v == btnRecord){
+        } else if (v == btnRecord) {
             startActivity(new Intent(this, RecordActvity.class));
-        }else if (v == btnkeyboard){
+        } else if (v == btnkeyboard) {
             startActivity(new Intent(this, KeyBoardActivity.class));
-        }else if (v == btnBottomSheet){
+        } else if (v == btnBottomSheet) {
             startActivity(new Intent(this, BottomSheetViewPageActivity.class));
-        }else if (v == btnVPinBottomSheet){
+        } else if (v == btnVPinBottomSheet) {
             startActivity(new Intent(this, ViewPageInBottomSheetDialogActivity.class));
-        }else if (v.getId() == R.id.btn_normal_fragment){
+        } else if (v.getId() == R.id.btn_normal_fragment) {
             startActivity(new Intent(this, FragmentActivity.class));
-        }else if (v == btnLiveGift){//直播礼物界面
+        } else if (v == btnLiveGift) {//直播礼物界面
             startActivity(new Intent(this, LiveGiftActivity.class));
-        }else if (v == btnNumPic){// 数字转图片
+        } else if (v == btnNumPic) {// 数字转图片
             startActivity(new Intent(this, NumToPicActivity.class));
-        }else if (v == btnNumPic1){// 数字转图片1
+        } else if (v == btnNumPic1) {// 数字转图片1
             startActivity(new Intent(this, DigitalActivity.class));
+        } else if (v == btnGiftRemain) {// 礼物倒计时
+            startActivity(new Intent(this, GiftRemainActivity.class));
         }
 
     }

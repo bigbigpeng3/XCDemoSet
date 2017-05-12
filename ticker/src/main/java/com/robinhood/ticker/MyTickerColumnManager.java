@@ -18,6 +18,7 @@ package com.robinhood.ticker;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -76,6 +77,9 @@ class MyTickerColumnManager {
         return false;
     }
 
+
+    public static final String TAG = "ColumnManager";
+
     /**
      * Tell the column manager the new target text that it should display.
      */
@@ -96,15 +100,32 @@ class MyTickerColumnManager {
 
         // Use Levenshtein distance algorithm to figure out how to manipulate the columns
         final int[] actions = LevenshteinUtils.computeColumnActions(getCurrentText(), text);
+
+        for (int i : actions) {
+            Log.e(TAG, " actions " + i);
+        }
+
         int columnIndex = 0;
         int textIndex = 0;
         for (int i = 0; i < actions.length; i++) {
+
+            //Log.e(TAG, " action = " + actions[i]);
+
+
             switch (actions[i]) {
                 case LevenshteinUtils.ACTION_INSERT:
-                    tickerColumns.add(columnIndex,
-                            new TickerColumn(characterList, characterIndicesMap, metrics));
+
+                    tickerColumns.add(columnIndex, new TickerColumn(characterList, characterIndicesMap, metrics));
+
                 case LevenshteinUtils.ACTION_SAME:
                     tickerColumns.get(columnIndex).setTargetChar(text[textIndex]);
+
+                    if (columnIndex != 0){
+                        tickerColumns.get(columnIndex).setScroll(true);
+                    }
+
+                    Log.e(TAG, " targetChar " + text[textIndex]);
+
                     columnIndex++;
                     textIndex++;
                     break;

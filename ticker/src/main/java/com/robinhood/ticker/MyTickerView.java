@@ -169,11 +169,13 @@ public class MyTickerView extends View {
         animator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
+
                 columnManager.setAnimationProgress(animation.getAnimatedFraction());
                 checkForRelayout();
                 invalidate();
             }
         });
+
         animator.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
@@ -245,9 +247,9 @@ public class MyTickerView extends View {
             }
         }
 
-        if (!foundEmpty) {
-            throw new IllegalArgumentException("Missing TickerUtils#EMPTY_CHAR in character list");
-        }
+//        if (!foundEmpty) {
+//            throw new IllegalArgumentException("Missing TickerUtils#EMPTY_CHAR in character list");
+//        }
 
         columnManager.setCharacterList(characterList);
     }
@@ -265,6 +267,7 @@ public class MyTickerView extends View {
     public void setText(String text) {
         mCurrentText = text;
         setText(text, columnManager.getCurrentWidth() > 0);
+//        setText(text,false);
     }
 
     public String getText() {

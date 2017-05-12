@@ -129,15 +129,15 @@
 
     <ImageView
         android:id="@+id/iv_x"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/animation_person_rl"
+        android:layout_alignTop="@+id/animation_person_rl"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="0dp"
         android:layout_toRightOf="@+id/animation_person_rl"
-        android:layout_alignBottom="@+id/animation_person_rl"
-        android:layout_alignTop="@+id/animation_person_rl"
         android:src="@drawable/gno_ya_x"
-        android:visibility="invisible"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:visibility="invisible"/>
 
 
     <com.robinhood.ticker.MyTickerView
@@ -154,7 +154,7 @@
         android:layout_toRightOf="@+id/iv_x"
         android:gravity="center_vertical|left"
         android:textAppearance="@style/TickerTextAppearance"
-
+        app:ticker_animationDuration="800"
         />
 
 

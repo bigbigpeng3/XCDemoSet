@@ -1,12 +1,12 @@
 /**
  * Copyright (C) 2016 Robinhood Markets, Inc.
- *
+ * <p>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- *
+ * <p>
  * http://www.apache.org/licenses/LICENSE-2.0
- *
+ * <p>
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -18,6 +18,7 @@ package com.robinhood.ticker;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.util.Log;
 
 import java.util.Map;
 
@@ -30,7 +31,9 @@ import java.util.Map;
  */
 class TickerColumn {
 
-    private static final boolean isReversed = true ;
+    public static final String TAG = "TickerColumn";
+
+    private static final boolean isReversed = true;
 
     private static final int UNKNOWN_START_INDEX = -1;
     private static final int UNKNOWN_END_INDEX = -2;
@@ -41,6 +44,8 @@ class TickerColumn {
 
     private char currentChar = TickerUtils.EMPTY_CHAR;
     private char targetChar = TickerUtils.EMPTY_CHAR;
+    //private char currentChar = (char) 48;
+//    private char targetChar = (char) 48;
 
     // The indices characters simply signify what positions are for the current and target
     // characters in the assigned characterList. This tells us how to animate from the current
@@ -65,12 +70,19 @@ class TickerColumn {
     private float previousBottomDelta;
     private int directionAdjustment;
 
+    private boolean isScroll = false;
+
     TickerColumn(char[] characterList, Map<Character, Integer> characterIndicesMap,
-            TickerDrawMetrics metrics) {
+                 TickerDrawMetrics metrics) {
         this.characterList = characterList;
         this.characterIndicesMap = characterIndicesMap;
         this.metrics = metrics;
     }
+
+    public void setScroll(boolean isScroll) {
+        this.isScroll = isScroll;
+    }
+
 
     /**
      * Tells the column that the next character it should show is {@param targetChar}. This can
@@ -88,12 +100,14 @@ class TickerColumn {
         setCharacterIndices();
 
         final boolean scrollDown = endIndex >= startIndex;
-        directionAdjustment = scrollDown ? 1 : -1;
+        directionAdjustment = -1;
+//        directionAdjustment = scrollDown ? 1 : -1;
 
         // Save the currentBottomDelta as previousBottomDelta in case this call to setTargetChar
         // interrupted a previously running animation. The deltas will then be used to compute
         // offset so that the interruption feels smooth on the UI.
         previousBottomDelta = currentBottomDelta;
+
         currentBottomDelta = 0f;
     }
 
@@ -113,7 +127,7 @@ class TickerColumn {
         return minimumRequiredWidth + 10;
     }
 
-    public void setMinimumRequiredWidth(int num){
+    public void setMinimumRequiredWidth(int num) {
         minimumRequiredWidth = minimumRequiredWidth + num;
     }
 
@@ -143,7 +157,18 @@ class TickerColumn {
         final float charHeight = metrics.getCharHeight();
 
         // First let's find the total height of this column between the start and end chars.
-        final float totalHeight = charHeight * Math.abs(endIndex - startIndex);
+//        float totalStep = (endIndex - startIndex) <= 0 ? -(endIndex - startIndex) : 10 - (endIndex - startIndex);
+
+        float totalStep;
+
+        if (isScroll) {
+            totalStep = (endIndex - startIndex) < 0 ? -(endIndex - startIndex) : 10 - (endIndex - startIndex);
+        } else {
+            totalStep = (endIndex - startIndex) <= 0 ? -(endIndex - startIndex) : 10 - (endIndex - startIndex);
+        }
+
+        //final float totalHeight = charHeight * Math.abs(endIndex - startIndex);
+        final float totalHeight = charHeight * totalStep;
 
         // The current base is then the part of the total height that we have progressed to
         // from the animation. For example, there might be 5 characters, each character is
@@ -177,10 +202,39 @@ class TickerColumn {
 
         // Figure out what the actual character index is in the characterList, and then
         // draw the character with the computed offset.
-        bottomCharIndex = startIndex + ((int) bottomCharPosition * directionAdjustment);
+
+//        bottomCharIndex = (startIndex + ((int) bottomCharPosition * directionAdjustment)) % 10;
+//
+//        if (bottomCharIndex < 0){
+//            bottomCharIndex = 10 + bottomCharIndex;
+//        }
+
+
+        if (endIndex > startIndex) {
+
+            bottomCharIndex = (10 + startIndex + ((int) bottomCharPosition * directionAdjustment)) % 10;
+
+        } else if (endIndex < startIndex) {
+
+            bottomCharIndex = startIndex + ((int) bottomCharPosition * directionAdjustment);
+
+        } else if (endIndex == startIndex) {
+
+            if (isScroll) {
+
+                bottomCharIndex = (10 + startIndex + ((int) bottomCharPosition * directionAdjustment)) % 10;
+
+            } else {
+
+                bottomCharIndex = startIndex + ((int) bottomCharPosition * directionAdjustment);
+            }
+
+        }
+
 
         this.charHeight = charHeight;
-        this.currentWidth = sourceWidth + (targetWidth - sourceWidth) * animationProgress;
+        this.currentWidth = targetWidth;
+        //this.currentWidth = sourceWidth + (targetWidth - sourceWidth) * animationProgress;
     }
 
     /**
@@ -197,60 +251,63 @@ class TickerColumn {
             } else if (bottomCharIndex == UNKNOWN_END_INDEX) {
                 currentChar = targetChar;
             }
+//            Log.e(TAG, "draw currentChar = " + currentChar);
+//            Log.e(TAG, "draw bottomCharIndex = " + bottomCharIndex);
             currentBottomDelta = bottomDelta;
         }
 
 
-
-        // Drawing the bottom character here might seem counter-intuitive because we've been
-        // computing for the bottom character this entire time. But the bottom character
-        // computed above might actually be above the baseline if we interrupted a previous
-        // animation that gave us a positive additionalDelta.
-//        drawText(canvas, textPaint, characterList, bottomCharIndex - 1, bottomDelta + charHeight);
-
-        // Draw the corresponding top and bottom characters if applicable
-        drawText(canvas, textPaint, characterList, bottomCharIndex + 1,
-                bottomDelta - charHeight);
-
-        if (isReversed){
-
+        if (isReversed) {
             // Drawing the bottom character here might seem counter-intuitive because we've been
             // computing for the bottom character this entire time. But the bottom character
             // computed above might actually be above the baseline if we interrupted a previous
             // animation that gave us a positive additionalDelta.
-            drawText(canvas, textPaint, characterList, bottomCharIndex - 1,
-                    bottomDelta + charHeight);
 
-            // Draw the corresponding top and bottom characters if applicable
-            drawText(canvas, textPaint, characterList, bottomCharIndex + 1,
-                    bottomDelta - charHeight);
-        }else {
+            drawText(canvas, textPaint, characterList, bottomCharIndex - 1, bottomDelta + charHeight);
 
-            // Draw the corresponding top and bottom characters if applicable
-            drawText(canvas, textPaint, characterList, bottomCharIndex + 1,
-                    bottomDelta - charHeight);
+            if (bottomCharIndex + 1 > 10) {
+                drawText(canvas, textPaint, characterList, 1, bottomDelta - charHeight);
+            } else {
+                drawText(canvas, textPaint, characterList, bottomCharIndex + 1,
+                        bottomDelta - charHeight);
+            }
 
-            drawText(canvas, textPaint, characterList, bottomCharIndex - 1,
-                    bottomDelta + charHeight);
+        } else {
+
+            drawText(canvas, textPaint, characterList, bottomCharIndex + 1, bottomDelta - charHeight);
+
+            drawText(canvas, textPaint, characterList, bottomCharIndex - 1, bottomDelta + charHeight);
         }
 
     }
 
     /**
+     * 基本不会出现负数的情况，所以一般情况下都只会执行 第一条if语句
+     *
      * @return whether the text was successfully drawn on the canvas
      */
-    private boolean drawText(Canvas canvas, Paint textPaint, char[] characterList, int index,
-            float verticalOffset) {
+    private boolean drawText(Canvas canvas, Paint textPaint, char[] characterList, int index, float verticalOffset) {
         if (index >= 0 && index < characterList.length) {
             canvas.drawText(characterList, index, 1, 0f, verticalOffset, textPaint);
+//            canvas.drawText(characterList, 0, 3, 0f, verticalOffset, textPaint);
+            Log.e(TAG, "drawText   if (index >= 0 && index < characterList.length) {index = " + index + ",characterList = " + String.valueOf(characterList));
             return true;
         } else if (startIndex == UNKNOWN_START_INDEX && index == UNKNOWN_START_INDEX) {
+
+            Log.e(TAG, "drawText  else if (startIndex == UNKNOWN_START_INDEX && index == UNKNOWN_START_INDEX))");
             canvas.drawText(Character.toString(currentChar), 0, 1, 0f, verticalOffset, textPaint);
+//            canvas.drawText(Character.toString(currentChar), 1, 0, 0f, verticalOffset, textPaint);
             return true;
         } else if (endIndex == UNKNOWN_END_INDEX && index == UNKNOWN_END_INDEX) {
+            Log.e(TAG, "drawText  else if (endIndex == UNKNOWN_END_INDEX && index == UNKNOWN_END_INDEX)");
+
             canvas.drawText(Character.toString(targetChar), 0, 1, 0f, verticalOffset, textPaint);
+//            canvas.drawText(Character.toString(targetChar), 1, 0, 0f, verticalOffset, textPaint);
             return true;
         }
+        Log.e(TAG, "drawText   return false; index = " + index + ",characterList = " + String.valueOf(characterList));
         return false;
     }
+
+
 }
