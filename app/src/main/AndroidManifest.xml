@@ -38,6 +38,8 @@
         </activity>
         <activity android:name=".DanmuActivity">
         </activity>
+        <activity android:name=".ParallaxActivity">
+        </activity>
     </application>
 
 </manifest>

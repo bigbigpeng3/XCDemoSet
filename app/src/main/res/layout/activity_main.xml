@@ -171,6 +171,12 @@
             android:layout_height="wrap_content"
             android:text="数字转图片效果1"/>
 
+        <Button
+            android:id="@+id/parallax"
+            android:text="视差"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
 
         <!--android:indeterminate="false"-->
         <!--android:indeterminateOnly="false"-->

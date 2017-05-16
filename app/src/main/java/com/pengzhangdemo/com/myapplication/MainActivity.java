@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnDanmu.setOnClickListener(this);
 
         findViewById(R.id.btn_normal_fragment).setOnClickListener(this);
+        findViewById(R.id.parallax).setOnClickListener(this);
 //        RoundCornerProgressBar progress1 = (RoundCornerProgressBar) findViewById(R.id.progress_1);
 //        progress1.setProgressColor(Color.parseColor("#ed3b27"));
 //        progress1.setProgressBackgroundColor(Color.parseColor("#808080"));
@@ -115,6 +116,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(this, GiftRemainActivity.class));
         } else if (v == btnDanmu) {// 用户弹幕
             startActivity(new Intent(this, DanmuActivity.class));
+        }else if (v.getId() == R.id.parallax){
+            startActivity(new Intent(this,ParallaxActivity.class));
         }
 
     }
