@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,6 +8,18 @@
     tools:context="com.pengzhangdemo.com.myapplication.DanmuActivity">
 
 
+
+    <Button
+        android:layout_gravity="center"
+        android:id="@+id/btn_sendDanmu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="发送一条弹幕"/>
+
+    <master.flame.danmaku.ui.widget.DanmakuView
+        android:id="@+id/sv_danmaku"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 
 

@@ -1,5 +1,6 @@
 package com.pengzhangdemo.com.myapplication;
 
+import android.animation.Animator;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -26,6 +27,8 @@ public class GiftRemainActivity extends AppCompatActivity {
     public void onClick1(View view) {
         FixedHexoRoundPathView pathView = (FixedHexoRoundPathView) view;
         pathView.timeTaskStart();
+
+
 
     }
 }
