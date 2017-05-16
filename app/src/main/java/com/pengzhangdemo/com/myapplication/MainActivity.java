@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnNumPic1;
     private Button btnGiftRemain;
     private Button btnDanmu;
+    private Button btnTag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +69,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         btnDanmu = (Button) findViewById(R.id.btn_danmu);
         btnDanmu.setOnClickListener(this);
+        btnTag = (Button) findViewById(R.id.btn_tag);
+        btnTag.setOnClickListener(this);
 
         findViewById(R.id.btn_normal_fragment).setOnClickListener(this);
         findViewById(R.id.parallax).setOnClickListener(this);
@@ -118,6 +121,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(new Intent(this, DanmuActivity.class));
         }else if (v.getId() == R.id.parallax){
             startActivity(new Intent(this,ParallaxActivity.class));
+        }else if (v.getId() == R.id.btn_tag){
+            startActivity(new Intent(this,TagColorActivity.class));
         }
 
     }

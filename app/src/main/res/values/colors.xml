@@ -83,6 +83,18 @@
     <color name="live_bottom_message_top_black_bg">#A4000000</color>
     <color name="live_bottom_black_bg">#9A000000</color>
 
+    <color name="black_alpha_80">#CD000000</color>
+    <color name="black_alpha_70">#B3000000</color>
+    <color name="black_alpha_60">#9A000000</color>
+    <color name="black_alpha_50">#BC000000</color>
+    <color name="black_alpha_40">#66000000</color>
+    <color name="black_alpha_30">#4C000000</color>
+    <color name="black_alpha_10">#19000000</color>
+
+    <color name="white_alpha_50">#BCFFFFFF</color>
+    <color name="white_alpha_40">#66FFFFFF</color>
+    <color name="white_alpha_30">#4CFFFFFF</color>
+    <color name="white_alpha_10">#19FFFFFF</color>
 
 
 
@@ -94,5 +106,9 @@
     <color name="live_chat_room_system_color">#33bbff</color>
     <color name="live_chat_room_system_gift_color">#ff4c51</color>
     <color name="live_chat_room_system_activity_color">#47d555</color>
+
+
+
+
 
 </resources>

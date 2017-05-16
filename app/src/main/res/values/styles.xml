@@ -30,6 +30,12 @@
         <item name="android:textSize">32sp</item>
         <!--<item name="android:typeface">@</item>-->
     </style>
+
+    <!--Tool Bar-->
+    <style name="ClipToolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="contentInsetStart">0dp</item><!-- 设置该属性解决空白部分-->
+    </style>
+
     <!--<item name="android:textStyle">bold|italic</item>-->
 
 </resources>

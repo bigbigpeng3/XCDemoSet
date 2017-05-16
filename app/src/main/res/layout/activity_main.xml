@@ -177,6 +177,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
+        <Button
+            android:id="@+id/btn_tag"
+            android:text="标签颜色变化"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
 
         <!--android:indeterminate="false"-->
         <!--android:indeterminateOnly="false"-->
