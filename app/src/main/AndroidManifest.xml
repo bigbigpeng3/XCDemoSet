@@ -13,36 +13,38 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".videopath.VideoListActivity"/>
-        <activity android:name=".videorecord.RecordActvity"/>
+        <activity android:name=".bigbigpeng3.videopath.VideoListActivity"/>
+        <activity android:name=".bigbigpeng3.videorecord.RecordActvity"/>
 
-        <service android:name=".videorecord.ScreenRecordService"/>
+        <service android:name=".bigbigpeng3.videorecord.ScreenRecordService"/>
 
         <activity
-            android:name=".keyboard.KeyBoardActivity"
+            android:name=".bigbigpeng3.keyboard.KeyBoardActivity"
             android:windowSoftInputMode="adjustResize"/>
-        <activity android:name=".BottomSheetViewPageActivity"/>
-        <activity android:name=".ViewPageInBottomSheetDialogActivity"/>
-        <activity android:name=".FragmentActivity"/>
-        <activity android:name=".LiveGiftActivity">
-        </activity>
-        <activity android:name=".NumToPicActivity"/>
-        <activity android:name=".DigitalActivity"/>
-        <activity android:name=".GiftRemainActivity">
-        </activity>
-        <activity android:name=".DanmuActivity">
-        </activity>
-        <activity android:name=".ParallaxActivity">
-        </activity>
-        <activity android:name=".TagColorActivity">
-        </activity>
+
+        <activity android:name=".bigbigpeng3.BottomSheetViewPageActivity"/>
+        <activity android:name=".bigbigpeng3.ViewPageInBottomSheetDialogActivity"/>
+        <activity android:name=".bigbigpeng3.FragmentActivity"/>
+        <activity android:name=".bigbigpeng3.LiveGiftActivity"/>
+        <activity android:name=".bigbigpeng3.NumToPicActivity"/>
+        <activity android:name=".bigbigpeng3.DigitalActivity"/>
+        <activity android:name=".bigbigpeng3.GiftRemainActivity"/>
+        <activity android:name=".bigbigpeng3.DanmuActivity"/>
+        <activity android:name=".bigbigpeng3.ParallaxActivity"/>
+        <activity android:name=".bigbigpeng3.TagColorActivity"/>
+        <activity android:name=".bigbigpeng3.PullStreamActivity"/>
+        <activity android:name=".bigbigpeng3.BigBigPengMainActivity"/>
+
+
+
+
     </application>
 
 </manifest>

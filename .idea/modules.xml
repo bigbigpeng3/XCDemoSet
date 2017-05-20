@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MyApplication.iml" filepath="$PROJECT_DIR$/MyApplication.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bigbigpenglibrary/bigbigpenglibrary.iml" filepath="$PROJECT_DIR$/bigbigpenglibrary/bigbigpenglibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lanhailibrary/lanhailibrary.iml" filepath="$PROJECT_DIR$/lanhailibrary/lanhailibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/ticker/ticker.iml" filepath="$PROJECT_DIR$/ticker/ticker.iml" />
     </modules>
   </component>

@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.pengzhangdemo.com.myapplication.LiveGiftActivity">
+    tools:context="com.pengzhangdemo.com.myapplication.bigbigpeng3.LiveGiftActivity">
 
 
-    <com.pengzhangdemo.com.myapplication.gift.GiftView
+    <com.pengzhangdemo.com.myapplication.bigbigpeng3.gift.GiftView
         android:id="@+id/giftView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

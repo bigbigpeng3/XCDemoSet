@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <com.pengzhangdemo.com.myapplication.parallax.PEWImageView
+        <com.pengzhangdemo.com.myapplication.bigbigpeng3.parallax.PEWImageView
             android:layout_width="wrap_content"
             android:layout_height="200dp"
             android:layout_gravity="center"
@@ -22,7 +22,7 @@
             app:reverse="reverseX"/>
 
 
-        <com.pengzhangdemo.com.myapplication.parallax.PEWImageView
+        <com.pengzhangdemo.com.myapplication.bigbigpeng3.parallax.PEWImageView
             android:layout_width="100dp"
             android:layout_height="200dp"
             android:layout_gravity="center"

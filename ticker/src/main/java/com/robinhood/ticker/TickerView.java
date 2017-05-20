@@ -238,9 +238,9 @@ public class TickerView extends View {
             }
         }
 
-        if (!foundEmpty) {
-            throw new IllegalArgumentException("Missing TickerUtils#EMPTY_CHAR in character list");
-        }
+//        if (!foundEmpty) {
+//            throw new IllegalArgumentException("Missing TickerUtils#EMPTY_CHAR in character list");
+//        }
 
         columnManager.setCharacterList(characterList);
     }

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.pengzhangdemo.com.myapplication.NumToPicActivity">
+    tools:context="com.pengzhangdemo.com.myapplication.bigbigpeng3.NumToPicActivity">
 
 
     <TextView
@@ -16,14 +16,14 @@
         android:gravity="center_vertical"/>
 
 
-    <com.pengzhangdemo.com.myapplication.numpic.NumToPicView
+    <com.pengzhangdemo.com.myapplication.bigbigpeng3.numpic.NumToPicView
         android:id="@+id/num_pic_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"/>
 
 
-    <com.pengzhangdemo.com.myapplication.numpic.NumView
+    <com.pengzhangdemo.com.myapplication.bigbigpeng3.numpic.NumView
         android:id="@+id/nv_change"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

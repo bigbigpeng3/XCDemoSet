@@ -9,6 +9,8 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/bigbigpenglibrary" />
+            <option value="$PROJECT_DIR$/lanhailibrary" />
             <option value="$PROJECT_DIR$/ticker" />
           </set>
         </option>
