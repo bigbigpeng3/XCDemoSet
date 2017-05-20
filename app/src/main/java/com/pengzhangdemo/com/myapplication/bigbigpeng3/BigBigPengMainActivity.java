@@ -15,7 +15,7 @@ import com.pengzhangdemo.com.myapplication.bigbigpeng3.videorecord.RecordActvity
 
 
 /**
- *  属于 直播类 App 效果/UI
+ *  属于 直播类 App 效果/UI Demo
  */
 public class BigBigPengMainActivity extends AppCompatActivity implements View.OnClickListener {
 
