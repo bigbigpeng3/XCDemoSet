@@ -23,9 +23,16 @@
 
 #### 5、建议大家使用Module的方式管理自己的资源文件，以及项目依赖。这样就不会让主Module资源变的太庞大。
 
+比如:
+
+![https://github.com/bigbigpeng3/XCDemoSet/blob/master/bigbigpengPic/bigbigpengModule.png](https://github.com/bigbigpeng3/XCDemoSet/blob/master/bigbigpengPic/bigbigpengModule.png)
 
 
 #### 6、建议大家在自己的主Activity写上自己这个Demo内的功能/UI 主要是哪个种类的App。比如：直播类App 功能&UI  。不同项目最好不要混杂到一起。
+
+比如:
+
+![https://github.com/bigbigpeng3/XCDemoSet/blob/master/bigbigpengPic/bigbigpengActvity.png](https://github.com/bigbigpeng3/XCDemoSet/blob/master/bigbigpengPic/bigbigpengActvity.png)
 
 #### 7、建议大家在自己的主 package 内写一个 README.md 方便其他成员知道你的Demo内有什么 功能&UI。
 
