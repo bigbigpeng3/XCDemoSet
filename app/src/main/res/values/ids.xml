@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="gift_frame0" type="id"/>
+    <item name="gift_frame1" type="id"/>
+    <item name="gift_frame2" type="id"/>
+    <item name="gift_frame3" type="id"/>
+
+</resources>

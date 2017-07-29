@@ -7,13 +7,11 @@ import android.view.View;
 import android.widget.Button;
 
 import com.pengzhangdemo.com.myapplication.bigbigpeng3.BigBigPengMainActivity;
+import com.pengzhangdemo.com.myapplication.bigbigpeng3.activity.ViewUpAndDisapperActivity;
 
 /**
- *
- *
- *
  * 起始于2017/05/20 (ps:窝草，520我还在敲代码)
- *
+ * <p>
  * <p>
  * 注意事项:
  * <p>
@@ -34,7 +32,6 @@ import com.pengzhangdemo.com.myapplication.bigbigpeng3.BigBigPengMainActivity;
  * 7、建议大家在自己的主 package 内写一个 README.md 方便其他成员知道你的Demo内有什么 功能&UI。
  * <p>
  * 8、
- *
  */
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -47,6 +44,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         initView();
+
+        startActivity(new Intent(this, ViewUpAndDisapperActivity.class));
     }
 
 

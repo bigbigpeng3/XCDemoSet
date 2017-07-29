@@ -18,6 +18,11 @@
         <attr name="innnerColor" format="color|reference" />
     </declare-styleable>
 
+    <declare-styleable name="StrokeArcTextView">
+        <attr name="arcouterColor" format="color|reference" />
+        <attr name="arcinnnerColor" format="color|reference" />
+    </declare-styleable>
+
 
     <declare-styleable name="DigitalView">
         <attr name="digiColor" format="color"/>

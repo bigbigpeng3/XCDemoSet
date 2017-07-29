@@ -208,6 +208,12 @@ class TickerColumn {
 //        if (bottomCharIndex < 0){
 //            bottomCharIndex = 10 + bottomCharIndex;
 //        }
+//
+//        bottomCharIndex = (startIndex + ((int) bottomCharPosition * directionAdjustment)) % 10;
+//
+//        if (bottomCharIndex < 0){
+//            bottomCharIndex = 10 + bottomCharIndex;
+//        }
 
 
         if (endIndex > startIndex) {
@@ -268,8 +274,7 @@ class TickerColumn {
             if (bottomCharIndex + 1 > 10) {
                 drawText(canvas, textPaint, characterList, 1, bottomDelta - charHeight);
             } else {
-                drawText(canvas, textPaint, characterList, bottomCharIndex + 1,
-                        bottomDelta - charHeight);
+                drawText(canvas, textPaint, characterList, bottomCharIndex + 1, bottomDelta - charHeight);
             }
 
         } else {

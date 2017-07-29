@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="210dp"
+    android:clipChildren="false"
+    >
+
+
+    <!--android:layout_marginRight="15dp"-->
+
+    <LinearLayout
+        android:id="@+id/animation_person_rl"
+        android:layout_width="165dp"
+        android:layout_height="42dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="65dp"
+        android:background="@drawable/bg_live_avata_80"
+        android:clipChildren="false"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        >
+
+        <com.pengzhangdemo.com.myapplication.widget.FixedHexagonImageView
+            android:id="@+id/gift_userheader_iv"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="-2dp"
+            android:scaleX="1.1"
+            android:scaleY="1.1"
+            android:src="@drawable/avatar_88"
+            app:borders_color="@android:color/white"
+            app:borders_width="1dp"
+            app:srcCompat="@drawable/avatar_88"
+            />
+        <!--android:background="@drawable/"-->
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <com.pengzhangdemo.com.myapplication.widget.MarqueeText
+                android:id="@+id/gift_usernickname_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+
+                android:ellipsize="marquee"
+
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+
+                android:gravity="center"
+                android:marqueeRepeatLimit="-1"
+                android:singleLine="true"
+
+                android:text="喜哥最霸气，喜哥最霸气，喜哥最霸气"
+                android:textColor="@color/live_title_white_text"
+                android:textSize="12sp"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_watcher_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="送"
+                    android:textColor="@color/live_title_yellow_text"
+                    android:textSize="10sp"/>
+
+
+                <com.pengzhangdemo.com.myapplication.widget.MarqueeText
+
+                    android:id="@+id/gift_usersign_tv"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginLeft="3dp"
+
+                    android:ellipsize="marquee"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+
+                    android:gravity="center_horizontal"
+                    android:marqueeRepeatLimit="-1"
+                    android:singleLine="true"
+
+                    android:text="迷之三爷"
+                    android:textColor="@color/live_title_white_text"
+                    android:textSize="11sp"/>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/animation_gift"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_vertical|right"
+            android:layout_marginRight="-20dp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/gift"/>
+
+
+    </LinearLayout>
+
+
+    <com.pengzhangdemo.com.myapplication.widget.StrokeTextView
+        android:id="@+id/st_x"
+        android:layout_width="22dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/animation_person_rl"
+        android:layout_alignTop="@+id/animation_person_rl"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="0dp"
+        android:layout_toRightOf="@+id/animation_person_rl"
+        android:gravity="center"
+        android:text="x"
+        android:textSize="28sp"
+        android:visibility="invisible"
+        />
+
+    <!--android:src="@drawable/gno_ya_x"-->
+
+    <com.robinhood.ticker.MyTickerView
+        android:id="@+id/animation_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/animation_person_rl"
+        android:layout_alignTop="@+id/animation_person_rl"
+
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="0dp"
+        android:layout_toRightOf="@+id/st_x"
+        android:gravity="center_vertical"
+        android:textAppearance="@style/TickerTextAppearance"
+        app:ticker_animationDuration="800"
+        />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/animation_person_rl"
+        android:layout_alignRight="@+id/animation_person_rl"
+        android:layout_below="@+id/animation_person_rl"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_below_520"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_winning_02"
+            android:gravity="center"
+            android:text="10倍"
+            android:textColor="#F6DC4C"
+            android:textSize="10sp"
+            android:visibility="invisible"/>
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="-5dp"
+        >
+
+        <ImageView
+            android:id="@+id/iv_rotate"
+            android:layout_width="210dp"
+            android:layout_height="210dp"
+            android:src="@drawable/bg_light_420_02"/>
+
+        <ImageView
+            android:id="@+id/iv_win_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/bg_winning_01"/>
+
+        <ImageView
+            android:id="@+id/iv_win_flowers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/bg_holiday_a001"/>
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"/>
+
+        <com.pengzhangdemo.com.myapplication.widget.StrokeArcTextView
+            android:text="520 倍"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/iv_win_main"
+            android:layout_alignLeft="@+id/iv_win_main"
+            android:layout_alignRight="@+id/iv_win_main"
+            android:layout_alignTop="@+id/iv_win_main"
+            android:layout_centerInParent="true"
+            android:textSize="20sp"
+            app:arcinnnerColor="#F3E275"
+            app:arcouterColor="@android:color/black"
+            />
+
+    </RelativeLayout>
+
+    <!--<FrameLayout-->
+    <!--android:id="@+id/rl_big_container"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!---->
+    <!--android:clipChildren="false"-->
+    <!--&gt;-->
+
+    <!--<ImageView-->
+    <!--android:id="@+id/iv_rotate"-->
+    <!--android:layout_width="210dp"-->
+    <!--android:layout_height="210dp"-->
+    <!--android:src="@drawable/bg_light_420_02"/>-->
+
+    <!--</FrameLayout>-->
+
+
+    <!--android:layout_alignLeft="@+id/animation_person_rl"
+        android:layout_alignRight="@+id/animation_person_rl"-->
+    <!--<ImageView-->
+    <!--android:id="@+id/animation_light"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginLeft="120dp"-->
+    <!--android:src="@drawable/light_star_anim"-->
+    <!--android:visibility="invisible"/>-->
+
+
+</RelativeLayout>
+

@@ -74,7 +74,7 @@ public class GiftFrameLayout extends FrameLayout implements Handler.Callback {
 
 
     private void initView() {
-        View view = mInflater.inflate(R.layout.my_gift_frame, this, false);
+        View view = mInflater.inflate(R.layout.back_upmy_gift_frame, this, false);
         anim_rl = (LinearLayout) view.findViewById(R.id.animation_person_rl);
         anim_gift = (ImageView) view.findViewById(R.id.animation_gift);
 //        anim_light = (ImageView) view.findViewById(R.id.animation_light);

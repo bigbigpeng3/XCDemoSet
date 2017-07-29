@@ -1,6 +1,7 @@
 package com.pengzhangdemo.com.myapplication.bigbigpeng3;
 
 import android.content.Intent;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -8,10 +9,28 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.idescout.sql.SqlScoutServer;
 import com.pengzhangdemo.com.myapplication.R;
+import com.pengzhangdemo.com.myapplication.app.BaseApplication;
+import com.pengzhangdemo.com.myapplication.bigbigpeng3.activity.BottomSheetViewPageActivity;
+import com.pengzhangdemo.com.myapplication.bigbigpeng3.activity.CameraActivity;
+import com.pengzhangdemo.com.myapplication.bigbigpeng3.activity.DBDemoActivity;
+import com.pengzhangdemo.com.myapplication.bigbigpeng3.activity.DanmuActivity;
+import com.pengzhangdemo.com.myapplication.bigbigpeng3.activity.DigitalActivity;
+import com.pengzhangdemo.com.myapplication.bigbigpeng3.activity.FragmentActivity;
+import com.pengzhangdemo.com.myapplication.bigbigpeng3.activity.GiftRemainActivity;
+import com.pengzhangdemo.com.myapplication.bigbigpeng3.activity.LiveGiftActivity;
+import com.pengzhangdemo.com.myapplication.bigbigpeng3.activity.NumToPicActivity;
+import com.pengzhangdemo.com.myapplication.bigbigpeng3.activity.ParallaxActivity;
+import com.pengzhangdemo.com.myapplication.bigbigpeng3.activity.PullStreamActivity;
+import com.pengzhangdemo.com.myapplication.bigbigpeng3.activity.TagColorActivity;
+import com.pengzhangdemo.com.myapplication.bigbigpeng3.activity.ViewPageInBottomSheetDialogActivity;
+import com.pengzhangdemo.com.myapplication.bigbigpeng3.activity.ViewUpAndDisapperActivity;
 import com.pengzhangdemo.com.myapplication.bigbigpeng3.keyboard.KeyBoardActivity;
 import com.pengzhangdemo.com.myapplication.bigbigpeng3.videopath.VideoListActivity;
 import com.pengzhangdemo.com.myapplication.bigbigpeng3.videorecord.RecordActvity;
+import com.pengzhangdemo.com.myapplication.widget.FixedHexagonImageView;
+import com.pengzhangdemo.com.myapplication.widget.FrameAnimation;
 
 
 /**
@@ -19,6 +38,7 @@ import com.pengzhangdemo.com.myapplication.bigbigpeng3.videorecord.RecordActvity
  */
 public class BigBigPengMainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private FixedHexagonImageView avatar;
     private TextView spannableText;
     private Button btnVideo;
     private Button btnRecord;
@@ -31,16 +51,22 @@ public class BigBigPengMainActivity extends AppCompatActivity implements View.On
     private Button btnGiftRemain;
     private Button btnDanmu;
     private Button btnTag;
+    private Button btnIjk;
+    private Button btnTakePhoto;
+    private Button btnDB;
+    private Button btnUpView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+        setContentView(R.layout.activity_main_bigbigpeng);
+        SqlScoutServer.create(this, getPackageName());
         Log.e("BigBigPengMainActivity", "onCreate: " + getResources().getDisplayMetrics().density);
 
-
         initSpannableText();
+
+        avatar = (FixedHexagonImageView) findViewById(R.id.iv_recycle_avatar);
+        FrameAnimation frameAnimation = new FrameAnimation(avatar, getAvatarRes(), 150, true);
 
         // 获取视频
         btnVideo = (Button) findViewById(R.id.btn_video);
@@ -76,6 +102,18 @@ public class BigBigPengMainActivity extends AppCompatActivity implements View.On
         btnDanmu.setOnClickListener(this);
         btnTag = (Button) findViewById(R.id.btn_tag);
         btnTag.setOnClickListener(this);
+
+        btnIjk = (Button) findViewById(R.id.btn_ijk);
+        btnIjk.setOnClickListener(this);
+
+        btnTakePhoto = (Button) findViewById(R.id.btn_take_photo0);
+        btnTakePhoto.setOnClickListener(this);
+
+        btnDB = (Button) findViewById(R.id.btn_db);
+        btnDB.setOnClickListener(this);
+
+        btnUpView = (Button) findViewById(R.id.btn_up_view);
+        btnUpView.setOnClickListener(this);
 
         findViewById(R.id.btn_normal_fragment).setOnClickListener(this);
         findViewById(R.id.parallax).setOnClickListener(this);
@@ -128,7 +166,28 @@ public class BigBigPengMainActivity extends AppCompatActivity implements View.On
             startActivity(new Intent(this,ParallaxActivity.class));
         }else if (v.getId() == R.id.btn_tag){
             startActivity(new Intent(this,TagColorActivity.class));
+        }else if (v.getId() == R.id.btn_ijk){
+            startActivity(new Intent(this,PullStreamActivity.class));
+        } else if (v == btnTakePhoto) {//
+            startActivity(new Intent(this, CameraActivity.class));
+        }else if (v == btnDB) {// 数据库
+            startActivity(new Intent(this, DBDemoActivity.class));
+        }else if (v == btnUpView) {// view 上弹并消失
+            startActivity(new Intent(this, ViewUpAndDisapperActivity.class));
         }
 
     }
+
+
+    private int[] getAvatarRes() {
+        TypedArray typedArray = BaseApplication.mAppContext.getResources().obtainTypedArray(R.array.transfer_avatar);
+        int len = typedArray.length();
+        int[] resId = new int[len];
+        for (int i = 0; i < len; i++) {
+            resId[i] = typedArray.getResourceId(i, -1);
+        }
+        typedArray.recycle();
+        return resId;
+    }
+
 }

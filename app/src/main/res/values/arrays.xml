@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--通过FrameAnimation播放的八十张图片-->
+    <array name="transfer_avatar">
+
+        <item>@drawable/br_gateway_01</item>
+        <item>@drawable/br_gateway_02</item>
+        <item>@drawable/br_gateway_03</item>
+        <item>@drawable/br_gateway_04</item>
+        <item>@drawable/br_gateway_05</item>
+        <item>@drawable/br_gateway_06</item>
+
+    </array>
+
+</resources>

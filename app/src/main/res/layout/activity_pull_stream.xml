@@ -1,10 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.pengzhangdemo.com.myapplication.bigbigpeng3.PullStreamActivity">
+    tools:context="com.pengzhangdemo.com.myapplication.bigbigpeng3.activity.PullStreamActivity">
 
-</android.support.constraint.ConstraintLayout>
+
+    <!--<com.pengzhangdemo.com.bigbigpenglibrary.widget.media.IjkVideoView-->
+    <!--android:id="@+id/video_view"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"/>-->
+
+    <com.pili.pldroid.player.widget.PLVideoTextureView
+        android:id="@+id/VideoView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"/>
+
+
+    <!--<TextView-->
+    <!--android:layout_centerInParent="true"-->
+    <!--android:text="拉流测试"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"/>-->
+
+</RelativeLayout>

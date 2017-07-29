@@ -4,6 +4,14 @@
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.READ_LOGS"/>
 
     <application
         android:name=".app.BaseApplication"
@@ -28,23 +36,31 @@
         <activity
             android:name=".bigbigpeng3.keyboard.KeyBoardActivity"
             android:windowSoftInputMode="adjustResize"/>
-
-        <activity android:name=".bigbigpeng3.BottomSheetViewPageActivity"/>
-        <activity android:name=".bigbigpeng3.ViewPageInBottomSheetDialogActivity"/>
-        <activity android:name=".bigbigpeng3.FragmentActivity"/>
-        <activity android:name=".bigbigpeng3.LiveGiftActivity"/>
-        <activity android:name=".bigbigpeng3.NumToPicActivity"/>
-        <activity android:name=".bigbigpeng3.DigitalActivity"/>
-        <activity android:name=".bigbigpeng3.GiftRemainActivity"/>
-        <activity android:name=".bigbigpeng3.DanmuActivity"/>
-        <activity android:name=".bigbigpeng3.ParallaxActivity"/>
-        <activity android:name=".bigbigpeng3.TagColorActivity"/>
-        <activity android:name=".bigbigpeng3.PullStreamActivity"/>
+        <activity android:name=".bigbigpeng3.activity.BottomSheetViewPageActivity"/>
+        <activity android:name=".bigbigpeng3.activity.ViewPageInBottomSheetDialogActivity"/>
+        <activity android:name=".bigbigpeng3.activity.FragmentActivity"/>
+        <activity android:name=".bigbigpeng3.activity.LiveGiftActivity"/>
+        <activity android:name=".bigbigpeng3.activity.NumToPicActivity"/>
+        <activity android:name=".bigbigpeng3.activity.DigitalActivity"/>
+        <activity android:name=".bigbigpeng3.activity.GiftRemainActivity"/>
+        <activity android:name=".bigbigpeng3.activity.DanmuActivity"/>
+        <activity android:name=".bigbigpeng3.activity.ParallaxActivity"/>
+        <activity android:name=".bigbigpeng3.activity.TagColorActivity"/>
+        <activity
+            android:name=".bigbigpeng3.activity.PullStreamActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullAppTheme"/>
         <activity android:name=".bigbigpeng3.BigBigPengMainActivity"/>
-
-
-
-
+        <activity android:name=".bigbigpeng3.activity.CameraActivity">
+        </activity>
+        <activity android:name=".bigbigpeng3.activity.DBDemoActivity">
+        </activity>
+        <activity
+            android:name=".bigbigpeng3.activity.ViewUpAndDisapperActivity"
+            android:label="@string/title_activity_view_up_and_disapper"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.pengzhangdemo.com.myapplication.bigbigpeng3.LiveGiftActivity">
+    tools:context="com.pengzhangdemo.com.myapplication.bigbigpeng3.activity.LiveGiftActivity">
 
 
     <com.pengzhangdemo.com.myapplication.bigbigpeng3.gift.GiftView
@@ -13,7 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_weight="1"/>
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"/>
 
     <!--android:layout_marginTop="95dp"-->
 
@@ -70,12 +71,10 @@
     </LinearLayout>
 
 
-
-
     <LinearLayout
-        android:layout_above="@+id/ll_one"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/ll_one"
         android:orientation="horizontal">
 
 

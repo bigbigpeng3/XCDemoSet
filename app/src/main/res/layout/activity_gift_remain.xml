@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.pengzhangdemo.com.myapplication.bigbigpeng3.GiftRemainActivity">
+    tools:context="com.pengzhangdemo.com.myapplication.bigbigpeng3.activity.GiftRemainActivity">
 
 
     <com.pengzhangdemo.com.myapplication.widget.PathMultiView

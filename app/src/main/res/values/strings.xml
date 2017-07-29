@@ -11,6 +11,7 @@
 
 
     <string name="num_zero">&#xe601;</string>
+    <string name="title_activity_view_up_and_disapper">ViewUpAndDisapperActivity</string>
 
 
 </resources>

@@ -56,6 +56,11 @@ public class GifManager {
 
 
     private GiftFrameLayout getShowCurrView(GiftSendModel model) {
+
+//        for (int i = 0; i < viewList.size(); i++) {
+//
+//        }
+
         for (GiftFrameLayout giftFrameLayout : viewList) {
             if (giftFrameLayout.isShowing() && giftFrameLayout.equalsCurrentModel(model)) {
                 return giftFrameLayout;
@@ -78,7 +83,18 @@ public class GifManager {
 //                return giftFrameLayout;
 //            }
 //        }
-        for (int i = viewList.size() - 1; i >= 0; i--) {
+        // 按照添加 的 倒序。
+//        for (int i = viewList.size() - 1; i >= 0; i--) {
+//
+//            GiftFrameLayout giftFrameLayout = viewList.get(i);
+//
+//            if (!giftFrameLayout.isShowing()) {
+//                return giftFrameLayout;
+//            }
+//        }
+
+        // 正序
+        for (int i = 0; i < viewList.size(); i++) {
 
             GiftFrameLayout giftFrameLayout = viewList.get(i);
 
